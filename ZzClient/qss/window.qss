@@ -1,0 +1,35 @@
+QFrame {
+    border: 0px;
+    background: '#FFFFFF';
+    font: "华文黑体", "PingFang SC", "Microsoft YaHei", "微软雅黑", "Arial", "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+/*
+ * 窗口圆角
+ */
+
+#Window {
+    background: transparent;
+}
+
+#Titlebar {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+#Navbar {
+    border-bottom-left-radius: 5px;
+}
+
+#Navigation {
+    border-bottom-left-radius: 5px;
+}
+
+#Pager {
+    border-bottom-right-radius: 5px;
+}
+
+#Pager > QFrame {
+    border-bottom-right-radius: 5px;
+}

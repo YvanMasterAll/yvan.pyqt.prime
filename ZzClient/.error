@@ -1,0 +1,36 @@
+2019-06-17 16:05:41,462 - base.py[line:61] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 92, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 79, in start
+    window = Window()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 21, in __init__
+    self.setupLayouts()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 58, in setupLayouts
+    self.addLayout(self.layout)
+AttributeError: 'Window' object has no attribute 'addLayout'
+
+2019-06-17 16:07:23,313 - base.py[line:61] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 92, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 79, in start
+    window = Window()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 18, in __init__
+    super(Window, self).__init__(parent)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widgets/window.py", line 209, in __init__
+    self._setupDrags()  # 设置鼠标跟踪判断默认值
+AttributeError: 'Window' object has no attribute '_setupDrags'
+
+2019-06-17 16:07:42,612 - base.py[line:61] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 92, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 86, in start
+    window.move(width, height)
+TypeError: move() takes 2 positional arguments but 3 were given
+
+2019-06-17 16:09:41,230 - base.py[line:61] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 92, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 86, in start
+    window.move(width, height)
+TypeError: move() takes 2 positional arguments but 3 were given
+
