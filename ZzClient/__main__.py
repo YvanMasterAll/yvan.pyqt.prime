@@ -1,5 +1,6 @@
-from PyQt5.QtGui import QIcon, QFontDatabase, QFont
+from PyQt5.QtGui import QIcon, QFontDatabase, QFont, QKeySequence
 from PyQt5.QtWidgets import QStackedWidget, QHBoxLayout, QApplication, QDesktopWidget, QVBoxLayout
+from qtpy.QtCore import Qt
 from window import QUnFrameWindow
 import sys
 from titlebar import Titlebar
@@ -8,7 +9,7 @@ from navbar import Navbar
 from test1page import Test1Page
 from test2page import Test2Page
 import styles
-from base import setStyle, initialize, handle_error, Const
+from base import setStyle, initialize, handle_error, Const, ConnectStyleSheetInspector
 from application import QSingleApplication
 import cgitb
 import os
@@ -77,6 +78,9 @@ def start():
         # 设置主题样式
         styles.dark(app)
         window = Window()
+        # 样式注入器
+        ConnectStyleSheetInspector(main_window=window,
+                                   shortcut=QKeySequence(Qt.Key_Tab))
         # 计算居中显示的位置
         desktop = QDesktopWidget().availableGeometry()
         width = (desktop.width() - window.width()) / 2

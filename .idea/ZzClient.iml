@@ -6,8 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/ZzClient/widgets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ZzClient/blocs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ZzClient/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ZzClient/network" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (ZzClient)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

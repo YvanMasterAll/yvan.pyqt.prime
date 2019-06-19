@@ -1,7 +1,8 @@
-from PyQt5.QtCore import Qt, QTimer, QPoint, QEvent
+from PyQt5.QtCore import Qt, QTimer, QPoint, QEvent, QRect
 from PyQt5.QtWidgets import QLabel, QWidget, QVBoxLayout, QDialog
 from qtpy.QtGui import QPalette, QPainter, QBrush, QPen, QColor, QHelpEvent
 import math
+import copy
 #
 # btn1 = QPushButton('鼠标悬停1', self, minimumHeight=38, toolTip='这是按钮1')
 #         ToolTip.bind(btn1)
@@ -77,6 +78,7 @@ class Loading(QWidget):
         palette = QPalette(self.palette())
         palette.setColor(palette.Background, Qt.transparent)
         self.setPalette(palette)
+        self.hide()
 
     def paintEvent(self, event):
         painter = QPainter()
@@ -110,3 +112,157 @@ class Loading(QWidget):
         if self.counter >= self.timeout*20:
             self.killTimer(self.timer)
             self.hide()
+
+class Spinner(QWidget):
+    def __init__(self, parent=None, centerOnParent=True, disableParentWhenSpinning=True):
+        QWidget.__init__(self)
+        self.parent = parent
+
+        self._centerOnParent = centerOnParent
+        self._disableParentWhenSpinning = disableParentWhenSpinning
+        self._color = QColor(Qt.black)
+        self._roundness = 100.0
+        self._minimumTrailOpacity = 3.14159265358979323846
+        self._trailFadePercentage = 80.0
+        self._revolutionsPerSecond = 1.57079632679489661923
+        self._numberOfLines = 20
+        self._lineLength = 10
+        self._lineWidth = 2
+        self._innerRadius = 10
+        self._currentCounter = 0
+        self._isSpinning = False
+
+        self._timer = QTimer(self)
+        self._timer.timeout.connect(self.rotate)
+        self.updateSize()
+        self.updateTimer()
+        self.hide()
+
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.setWindowModality(Qt.ApplicationModal)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+
+    def stop(self):
+        self._isSpinning = False
+        self.hide()
+
+        if self.parent != None and self._disableParentWhenSpinning:
+            self.parent.setDisabled(False)
+
+        if self._timer.isActive():
+            self._timer.stop()
+            self._currentCounter = 0
+
+    def rotate(self):
+        self._currentCounter += 1
+        if self._currentCounter >= self._numberOfLines:
+            self._currentCounter = 0
+
+        self.update()
+
+    def updateSize(self):
+        size = (self._innerRadius + self._lineLength)*2
+        self.setFixedSize(size, size)
+
+    def updateTimer(self):
+        self._timer.setInterval(1000/(self._numberOfLines*self._revolutionsPerSecond))
+
+    def updatePosition(self):
+        if self.parent != None and self._centerOnParent:
+            self.move(self.parent.pos().x() + self.parent.width()/2 - self.width()/2,
+                      self.parent.pos().y() + self.parent.height()/2 - self.height()/2)
+
+    def start(self):
+        self.updatePosition()
+        self._isSpinning = True
+        self.show()
+
+        if self.parent != None and self._disableParentWhenSpinning:
+            self.parent.setDisabled(True)
+
+        if not self._timer.isActive():
+            self._timer.start()
+            self._currentCounter = 0
+
+    def paintEvent(self, event):
+        self.updatePosition()
+        painter = QPainter(self)
+        painter.fillRect(self.rect(), Qt.transparent)
+        painter.setRenderHint(QPainter.Antialiasing, True)
+
+        if self._currentCounter >= self._numberOfLines:
+            self._currentCounter = 0
+
+        painter.setPen(Qt.NoPen)
+        for i in range(0, self._numberOfLines):
+            painter.save()
+            painter.translate(self._innerRadius + self._lineLength, self._innerRadius + self._lineLength)
+            rotateAngle = float(360*i)/float(self._numberOfLines)
+            painter.rotate(rotateAngle)
+            painter.translate(self._innerRadius, 0)
+            distance = int(self.lineCountDistanceFromPrimary(i, self._currentCounter, self._numberOfLines))
+            color = self.currentLineColor(distance, self._numberOfLines, self._trailFadePercentage, self._minimumTrailOpacity, self._color)
+            painter.setBrush(color)
+            # TODO: improve the way rounded rect is painted
+            painter.drawRoundedRect(QRect(0, -self._lineWidth/2, self._lineLength, self._lineWidth), self._roundness, self._roundness, Qt.RelativeSize)
+            painter.restore()
+
+    def lineCountDistanceFromPrimary(self, current, primary, totalNrOfLines):
+        distance = primary - current
+        if distance < 0:
+            distance += totalNrOfLines
+
+        return distance
+
+    def currentLineColor(self, countDistance, totalNrOfLines, trailFadePerc, minOpacity, color):
+        _color = copy.copy(color)
+        if countDistance == 0:
+            return _color
+
+        minAlphaF = minOpacity/100.0
+        distanceThreshold = int(math.ceil((totalNrOfLines - 1)*trailFadePerc/100.0))
+        if countDistance > distanceThreshold:
+            _color.setAlphaF(minAlphaF)
+        else:
+            alphaDiff = _color.alphaF() - minAlphaF
+            gradient = alphaDiff/float(distanceThreshold + 1)
+            resultAlpha = _color.alphaF() - gradient*countDistance
+
+            # if alpha is out of bounds, clip it
+            resultAlpha = min(1.0, max(0.0, resultAlpha))
+            _color.setAlphaF(resultAlpha)
+
+        return _color
+
+    def setRoundness(self, roundness):
+        self._roundness = max(0.0, min(100.0, roundness))
+
+    def setColor(self, color):
+        self._color = color
+
+    def setRevolutionsPerSecond(self, revolutionsPerSecond):
+        self._revolutionsPerSecond = revolutionsPerSecond
+        self.updateTimer()
+
+    def setTrailFadePercentage(self, trail):
+        self._trailFadePercentage = trail
+
+    def setMinimumTrailOpacity(self, minimumTrailOpacity):
+        self._minimumTrailOpacity = minimumTrailOpacity
+
+    def setNumberOfLines(self, lines):
+        self._numberOfLines = lines
+        self._currentCounter = 0
+        self.updateTimer()
+
+    def setLineLength(self, length):
+        self._lineLength = length
+        self.updateSize()
+
+    def setLineWidth(self, width):
+        self._lineWidth = width
+        self.updateSize()
+
+    def setInnerRadius(self, radius):
+        self._innerRadius = radius
+        self.updateSize()

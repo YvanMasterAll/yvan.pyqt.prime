@@ -34,3 +34,10 @@ TypeError: move() takes 2 positional arguments but 3 were given
     window.move(width, height)
 TypeError: move() takes 2 positional arguments but 3 were given
 
+2019-06-18 09:31:39,278 - base.py[line:62] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 96, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 83, in start
+    shortcut=QKeySequence(tr("Ctrl + W")))
+NameError: name 'tr' is not defined
+
