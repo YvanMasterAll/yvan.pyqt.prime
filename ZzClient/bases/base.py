@@ -6,6 +6,7 @@ import sys
 from qtpy.QtCore import QSettings, QTextCodec
 from qtpy.QtWidgets import QShortcut
 from qtpy.QtCore import Qt
+from os.path import join, dirname, abspath
 
 # 全局方法
 
@@ -20,10 +21,10 @@ class Const:
     qt_version      = tuple(int(v) for v in qtpy.QT_VERSION.split('.'))
 
     # 配置目录
-    env_file        = '.env'
-    except_file     = '.except_file'
-    log_file        = '.log'
-    error_file      = '.error'
+    env_file        = join(dirname(abspath(__file__)), '../.env')
+    except_file     = join(dirname(abspath(__file__)), '../.except')
+    log_file        = join(dirname(abspath(__file__)), '../.log')
+    error_file      = join(dirname(abspath(__file__)), '../.error')
 
 def setStyle(name, widget):
     with open('qss/' + name + '.qss', 'r', encoding='utf-8') as f:
@@ -59,6 +60,7 @@ logger_err.addHandler(console_err)
 def handle_error(e):
     # TODO: 将异常信息记录到日志中
     if isinstance(e, BaseException):
+        # yLog
         logger_err.error(traceback.format_exc())
         show_error(traceback.format_exc())
 

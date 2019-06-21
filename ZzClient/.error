@@ -41,3 +41,151 @@ TypeError: move() takes 2 positional arguments but 3 were given
     shortcut=QKeySequence(tr("Ctrl + W")))
 NameError: name 'tr' is not defined
 
+2019-06-21 14:44:04,761 - models.py[line:41] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 38, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 51, in _signin
+    raise SigninError()
+errors.SigninError: 用户或密码错误
+
+2019-06-21 15:46:23,921 - models.py[line:52] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 49, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 71, in _list
+    .where(RelationShip.from_user == user))
+UnboundLocalError: local variable 'user' referenced before assignment
+
+2019-06-21 15:47:00,753 - models.py[line:52] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 49, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 71, in _list
+    .where(RelationShip.from_user == self.user))
+AttributeError: 'Service' object has no attribute 'user'
+
+2019-06-21 15:52:06,302 - models.py[line:52] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 49, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 78, in _list
+    if _users.count() == 0:
+TypeError: count() takes exactly one argument (0 given)
+
+2019-06-21 15:55:50,403 - models.py[line:52] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 49, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 80, in _list
+    raise NoDataError()
+errors.NoDataError: 没有发现数据
+
+2019-06-21 15:56:21,174 - models.py[line:52] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 49, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 80, in _list
+    raise NoDataError()
+errors.NoDataError: 没有发现数据
+
+2019-06-21 16:03:01,133 - models.py[line:60] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 57, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 81, in _list
+    if _user.id in follows:
+TypeError: argument of type 'NoneType' is not iterable
+
+2019-06-21 16:11:48,877 - models.py[line:62] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 59, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 73, in _signin
+    raise SigninError()
+errors.SigninError: 用户或密码错误
+
+2019-06-21 16:12:03,042 - models.py[line:62] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 59, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 73, in _signin
+    raise SigninError()
+errors.SigninError: 用户或密码错误
+
+2019-06-21 16:12:34,003 - models.py[line:62] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 6496, in get
+    return clone.execute(database)[0]
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 4024, in __getitem__
+    return self.row_cache[item]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 59, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 69, in _signin
+    user = User.select().where(User.name == name, User.pwd == pwd).get()
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 6501, in get
+    (clone.model, sql, params))
+UserDoesNotExist: <Model: User> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."name", "t1"."pwd", "t1"."email", "t1"."create_time" FROM "user" AS "t1" WHERE (("t1"."name" = ?) AND ("t1"."pwd" = ?)) LIMIT ? OFFSET ?
+Params: ['yi', '1234', 1, 0]
+
+2019-06-21 16:13:39,216 - models.py[line:62] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 6496, in get
+    return clone.execute(database)[0]
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 4024, in __getitem__
+    return self.row_cache[item]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 59, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 69, in _signin
+    user = User.select().where(User.name == name, User.pwd == pwd).get()
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 6501, in get
+    (clone.model, sql, params))
+UserDoesNotExist: <Model: User> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."name", "t1"."pwd", "t1"."email", "t1"."create_time" FROM "user" AS "t1" WHERE (("t1"."name" = ?) AND ("t1"."pwd" = ?)) LIMIT ? OFFSET ?
+Params: ['yi', '1234', 1, 0]
+
+2019-06-21 16:14:50,743 - models.py[line:62] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 6496, in get
+    return clone.execute(database)[0]
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 4024, in __getitem__
+    return self.row_cache[item]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 70, in _signin
+    user = User.select().where(User.name == name, User.pwd == pwd).get()
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 6501, in get
+    (clone.model, sql, params))
+UserDoesNotExist: <Model: User> instance matching query does not exist:
+SQL: SELECT "t1"."id", "t1"."name", "t1"."pwd", "t1"."email", "t1"."create_time" FROM "user" AS "t1" WHERE (("t1"."name" = ?) AND ("t1"."pwd" = ?)) LIMIT ? OFFSET ?
+Params: ['yi', '1234', 1, 0]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 59, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 73, in _signin
+    raise SigninError()
+errors.SigninError: 用户或密码错误
+
+2019-06-21 16:21:37,613 - models.py[line:64] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 61, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 82, in _list
+    follows = user.follows()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 42, in follows
+    follows.paginate()
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/peewee.py", line 698, in inner
+    method(clone, *args, **kwargs)
+TypeError: paginate() missing 1 required positional argument: 'page'
+
+2019-06-21 16:37:38,911 - models.py[line:58] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 55, in handle_execute
+    return sql()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/network/models.py", line 77, in _list
+    users = User.select().list()
+AttributeError: 'ModelSelect' object has no attribute 'list'
+

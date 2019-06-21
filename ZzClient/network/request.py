@@ -5,6 +5,8 @@ from PyQt5.QtCore import pyqtSignal, QObject
 
 """https://github.com/jiangfubang/jfbrequests"""
 
+# 网络请求
+
 loop = asyncio.get_event_loop()
 
 async def main(url, method, timeout=None, headers=None, cookies=None, proxy=None, data=None, params=None):
@@ -120,6 +122,8 @@ class ResultCode(object):
     _jsonIllegal    = "数据异常"
     success         = 200
     _success        = "请求成功"
+    sqlException    = 102
+    _sqlException   = "数据库查询异常"
 
     def __init__(self, code, msg=None):
         self.code = code
@@ -133,6 +137,8 @@ class ResultCode(object):
             return self._success
         elif code == self.jsonIllegal:
             return self._jsonIllegal
+        elif code == self.sqlException:
+            return self._sqlException
         else:
             return "unknown"
 
@@ -148,4 +154,5 @@ class ResultCode(object):
         return self.code
 
 class ResultSet:
+    success     = ResultCode(ResultCode.success)
     jsonIllegal = ResultCode(ResultCode.jsonIllegal)
