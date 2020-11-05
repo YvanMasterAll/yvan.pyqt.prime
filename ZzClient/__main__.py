@@ -1,68 +1,22 @@
-from PyQt5.QtGui import QIcon, QFontDatabase, QFont, QKeySequence
-from PyQt5.QtWidgets import QStackedWidget, QHBoxLayout, QApplication, QDesktopWidget, QVBoxLayout
+from PyQt5.QtGui import QIcon, QKeySequence
+from PyQt5.QtWidgets import QStackedWidget, QHBoxLayout, QDesktopWidget, QVBoxLayout
 from qtpy.QtCore import Qt
-from window import QUnFrameWindow
 import sys
-from titlebar import Titlebar
-from bloc import Bloc_Window
-from navbar import Navbar
-from test1page import Test1Page
-from test2page import Test2Page
-import styles
-from base import setStyle, initialize, handle_error, Const, ConnectStyleSheetInspector
-from application import QSingleApplication
+from ZzClient.config.theme import Theme
+from ZzClient.common.util.func import handle_error
+from ZzClient.common.loader.inspector import ConnectStyleSheetInspector
+from ZzClient.config.const import Config
+from ZzClient.widget.application import QSingleApplication
+from ZzClient.view.home.index import HomePage
 import cgitb
 import os
-
-class Window(QUnFrameWindow, Bloc_Window):
-    def __init__(self, parent=None):
-        super(Window, self).__init__(parent)
-
-        self.setupUI()
-        self.setupLayouts()
-        self.setupContents()
-        self._setupBlocs() # 初始化数据块
-        self._setMouseTracking() # 设置鼠标跟踪
-
-    def setupUI(self):
-        self.setObjectName("Window")
-        self.setWindowIcon(QIcon('resource/icons/favicon.ico'))
-        setStyle("window", self)
-
-        # 标题栏
-        self.titlebar = Titlebar(self)
-        # 左侧导航
-        self.navbar = Navbar(self)
-        # 主体内容
-        self.content = QStackedWidget()
-        self.content.setObjectName("Pager")
-        self.content_test1 = Test1Page(self)
-        self.content_test1.setObjectName("Test1Page")
-        self.content_test2 = Test2Page(self)
-        self.content_test2.setObjectName("Test2Page")
-
-    def setupContents(self):
-        # 分页管理
-        self.content.addWidget(self.content_test1)
-        self.content.addWidget(self.content_test2)
-        self.content.setCurrentIndex(1)
-
-    def setupLayouts(self):
-        self.layout = QVBoxLayout()
-        self.layout.addWidget(self.titlebar)
-
-        self.layout_content = QHBoxLayout()
-        self.layout_content.addWidget(self.navbar)
-        self.layout_content.addWidget(self.content)
-
-        self.layout.addLayout(self.layout_content)
-        self.addLayout(self.layout)
+from loader.resource import ResourceLoader
 
 def start():
     app = QSingleApplication("zzclient", sys.argv)
     # 异常捕获
-    os.makedirs(Const.except_file, exist_ok=True)
-    sys.excepthook = cgitb.Hook(1, Const.except_file, 5, sys.stderr, '')
+    os.makedirs(Config().except_path, exist_ok=True)
+    sys.excepthook = cgitb.Hook(1, Config().except_path, 5, sys.stderr, '')
     if app.isRunning():
         # 激活窗口
         app.sendMessage('show', 1000)
@@ -70,14 +24,14 @@ def start():
         # 窗口关闭程序退出
         app.setQuitOnLastWindowClosed(True)
         # 应用图标
-        app.setWindowIcon(QIcon('resources/icons/app.svg'))
+        app.setWindowIcon(ResourceLoader().qt_icon_project_ico)
         # 设置字体
         # fontDB = QFontDatabase()
-        # fontDB.addApplicationFont(':/fonts/Roboto-Regular.ttf')
+        # fontDB.addApplicationFont(':/font/Roboto-Regular.ttf')
         # app.setFont(QFont('Roboto'))
         # 设置主题样式
-        styles.dark(app)
-        window = Window()
+        Theme.load()
+        window = HomePage()
         # 样式注入器
         ConnectStyleSheetInspector(main_window=window,
                                    shortcut=QKeySequence(Qt.Key_Tab))
@@ -92,7 +46,7 @@ def start():
 
 if __name__ == '__main__':
     try:
-        initialize()
+        # TODO 初始化操作
         start()
     except SystemExit:
         pass

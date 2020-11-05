@@ -1,0 +1,110 @@
+ModuleNotFoundError
+Python 3.7.3: /Users/yiqiang/.conda/envs/ZzClient/bin/python
+Thu Nov  5 19:04:00 2020
+
+A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/test1page.py in on_pushButton_clicked(self=<test1page.Test1Page object>)
+   18         self.setStyleSheet("QFrame{background: 'red';}")
+   19 
+   20     @Slot()
+   21     def on_pushButton_clicked(self):
+   22         self.theme.toggle('light')
+self = <test1page.Test1Page object>
+self.theme = <ZzClient.config.theme.Theme object>
+self.theme.toggle = <bound method Theme.toggle of <class 'ZzClient.config.theme.Theme'>>
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/config/theme.py in toggle(cls=<class 'ZzClient.config.theme.Theme'>, theme='light')
+   72         LocalStorage.themeSet(theme)
+   73         # 2).重载主题
+   74         Theme.load()
+   75 
+   76 '''
+global Theme = <class 'ZzClient.config.theme.Theme'>
+Theme.load = <bound method Theme.load of <class 'ZzClient.config.theme.Theme'>>
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/config/theme.py in load(cls=<class 'ZzClient.config.theme.Theme'>)
+   41         # 0).资源文件
+   42         importlib.import_module('ZzClient.resource.qss.theme.{theme}.skin_rc'.format(theme=theme))
+   43         importlib.import_module('ZzClient.resource.qss.theme.{theme}.style_rc'.format(theme=theme))
+   44         # 1).自带皮肤
+   45         app.setStyle('Fusion')
+global importlib = <module 'importlib' from '/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/importlib/__init__.py'>
+importlib.import_module = <function import_module>
+'ZzClient.resource.qss.theme.{theme}.style_rc'.format undefined
+theme = 'light'
+
+ /Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/importlib/__init__.py in import_module(name='ZzClient.resource.qss.theme.light.style_rc', package=None)
+  125                 break
+  126             level += 1
+  127     return _bootstrap._gcd_import(name[level:], package, level)
+  128 
+  129 
+global _bootstrap = <module 'importlib._bootstrap' (frozen)>
+_bootstrap._gcd_import = <function _gcd_import>
+name = 'ZzClient.resource.qss.theme.light.style_rc'
+level = 0
+package = None
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/<frozen importlib._bootstrap> in _gcd_import(name='ZzClient.resource.qss.theme.light.style_rc', package=None, level=0)
+
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/<frozen importlib._bootstrap> in _find_and_load(name='ZzClient.resource.qss.theme.light.style_rc', import_=<function _gcd_import>)
+
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/<frozen importlib._bootstrap> in _find_and_load_unlocked(name='ZzClient.resource.qss.theme.light.style_rc', import_=<function _gcd_import>)
+
+ModuleNotFoundError: No module named 'ZzClient.resource.qss.theme.light.style_rc'
+    __cause__ = None
+    __class__ = <class 'ModuleNotFoundError'>
+    __context__ = None
+    __delattr__ = <method-wrapper '__delattr__' of ModuleNotFoundError object>
+    __dict__ = {}
+    __dir__ = <built-in method __dir__ of ModuleNotFoundError object>
+    __doc__ = 'Module not found.'
+    __eq__ = <method-wrapper '__eq__' of ModuleNotFoundError object>
+    __format__ = <built-in method __format__ of ModuleNotFoundError object>
+    __ge__ = <method-wrapper '__ge__' of ModuleNotFoundError object>
+    __getattribute__ = <method-wrapper '__getattribute__' of ModuleNotFoundError object>
+    __gt__ = <method-wrapper '__gt__' of ModuleNotFoundError object>
+    __hash__ = <method-wrapper '__hash__' of ModuleNotFoundError object>
+    __init__ = <method-wrapper '__init__' of ModuleNotFoundError object>
+    __init_subclass__ = <built-in method __init_subclass__ of type object>
+    __le__ = <method-wrapper '__le__' of ModuleNotFoundError object>
+    __lt__ = <method-wrapper '__lt__' of ModuleNotFoundError object>
+    __ne__ = <method-wrapper '__ne__' of ModuleNotFoundError object>
+    __new__ = <built-in method __new__ of type object>
+    __reduce__ = <built-in method __reduce__ of ModuleNotFoundError object>
+    __reduce_ex__ = <built-in method __reduce_ex__ of ModuleNotFoundError object>
+    __repr__ = <method-wrapper '__repr__' of ModuleNotFoundError object>
+    __setattr__ = <method-wrapper '__setattr__' of ModuleNotFoundError object>
+    __setstate__ = <built-in method __setstate__ of ModuleNotFoundError object>
+    __sizeof__ = <built-in method __sizeof__ of ModuleNotFoundError object>
+    __str__ = <method-wrapper '__str__' of ModuleNotFoundError object>
+    __subclasshook__ = <built-in method __subclasshook__ of type object>
+    __suppress_context__ = False
+    __traceback__ = <traceback object>
+    args = ("No module named 'ZzClient.resource.qss.theme.light.style_rc'",)
+    msg = "No module named 'ZzClient.resource.qss.theme.light.style_rc'"
+    name = 'ZzClient.resource.qss.theme.light.style_rc'
+    path = None
+    with_traceback = <built-in method with_traceback of ModuleNotFoundError object>
+
+The above is a description of an error in a Python program.  Here is
+the original traceback:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/test1page.py", line 22, in on_pushButton_clicked
+    self.theme.toggle('light')
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/config/theme.py", line 74, in toggle
+    Theme.load()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/config/theme.py", line 43, in load
+    importlib.import_module('ZzClient.resource.qss.theme.{theme}.style_rc'.format(theme=theme))
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ZzClient.resource.qss.theme.light.style_rc'
+

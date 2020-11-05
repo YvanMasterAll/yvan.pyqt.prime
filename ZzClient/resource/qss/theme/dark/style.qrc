@@ -1,0 +1,13 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+<file alias="icon/window_maximize.png">../../../img/dark/icon/window_maximize.png</file>
+<file alias="icon/favicon.ico">../../../img/dark/icon/favicon.ico</file>
+<file alias="icon/app.svg">../../../img/dark/icon/app.svg</file>
+<file alias="icon/window_minimize.png">../../../img/dark/icon/window_minimize.png</file>
+<file alias="icon/window_restore.png">../../../img/dark/icon/window_restore.png</file>
+<file alias="icon/window_close.png">../../../img/dark/icon/window_close.png</file>
+<file alias="icon/app.icns">../../../img/dark/icon/app.icns</file>
+<file alias="icon/app.ico">../../../img/dark/icon/app.ico</file>
+</qresource>
+</RCC>

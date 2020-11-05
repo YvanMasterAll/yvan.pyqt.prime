@@ -20,9 +20,9 @@ setup(
     author="yvan ",
     author_email='1136838669@qq.com',
     url='https://github.com/masteryvanall/yvan.pyqt.prime',
-    packages=['ZzClient', 'ZzClient.resources',
-              'ZzClient.tests'],
-    package_data={'ZzClient.resources': ['*.png']},
+    packages=['ZzClient', 'ZzClient.resource',
+              'ZzClient.test'],
+    package_data={'ZzClient.resource': ['*.png']},
     entry_points={
         'console_scripts': [
             'ZzClient=ZzClient.ZzClient:main'
@@ -36,6 +36,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    test_suite='tests',
+    test_suite='test',
     tests_require=test_requirements
 )

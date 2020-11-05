@@ -1,0 +1,88 @@
+/*
+ * Color:
+
+    background_light        #323338
+    background              #1F2020
+    background_deep         #000000
+    text                    #FFFEFE
+    sub_text                #CDCDCD
+*/
+
+/*
+ * 通用样式
+ */
+
+QFrame {
+    background: #323338;
+    font: "华文黑体", "PingFang SC", "Microsoft YaHei", "微软雅黑", "Arial", "Open Sans", sans-serif;s
+}
+
+QLabel {
+    background-color: transparent;
+    color: #FFFEFE;
+    font-size: 14px;
+}
+
+/*
+ * 标题栏
+ */
+
+#TitleBar {
+    background-color: #323338;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top: 1px solid qlineargradient(x1:0,y1:0,x2:0,y2:1,stop:0 #888,stop:0.4 #777,stop:0.7 #666,stop:1 #555);
+}
+
+#TitleBar QPushButton {
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+
+#TitleBar_buttonMinimum {
+    padding-bottom: 4px;
+}
+
+#TitleBar_buttonClose {
+    padding-top: 1px;
+}
+
+#TitleBar_labelTitle {
+    padding-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * 窗口圆角
+ */
+
+#Navbar {
+    border-bottom-left-radius: 5px;
+    background-color: red;
+}
+
+#Navigation {
+    border-bottom-left-radius: 5px;
+}
+
+#Pager {
+    border-bottom-right-radius: 5px;
+}
+
+#Pager > QFrame {
+    border-bottom-right-radius: 5px;
+}
