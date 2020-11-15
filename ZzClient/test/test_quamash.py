@@ -1,5 +1,5 @@
 from PyQt5.QtCore import pyqtSignal, QObject
-from util.http import request, Result, ResultCode, ResultSet
+from common.util.http import request, Result, ResultCode, ResultSet
 
 '''
 测试aiohttp

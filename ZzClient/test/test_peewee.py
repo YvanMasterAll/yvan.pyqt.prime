@@ -1,4 +1,4 @@
-from models import *
+from db.model import *
 
 if __name__ == "__main__":
 

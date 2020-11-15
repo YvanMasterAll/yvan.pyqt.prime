@@ -1,12 +1,12 @@
-from PyQt5.QtGui import QKeyEvent, QMouseEvent, QPainterPath, QPainter, QBrush, QPixmap, QWindowStateChangeEvent
+from PyQt5.QtGui import QKeyEvent, QMouseEvent, QPainterPath, QPainter, QBrush, QPixmap, QWindowStateChangeEvent, \
+    QColor, QPen, QEnterEvent
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QApplication, QDialog
 from PyQt5.QtCore import Qt, QPoint, QEvent, QRect
 from PyQt5.QtCore import QObject
-from ZzClient.config.const import Config
-from ZzClient.widget.dialog import waiting_dialog
-from ZzClient.common.util.logger import logger, logger_err
-from ZzClient.widget.view import BaseView
-from ZzClient.widget.frame.bar.titlebar import TitleBar
+from widget.dialog import waiting_dialog
+from common.util.logger import logger, logger_err
+from widget.view import BaseView
+from widget.frame.bar.titlebar import TitleBar
 
 '''
 页面基类
@@ -51,6 +51,8 @@ class BaseActivity(QDialog, BaseView):
         self._configure()
 
     def _configure(self):
+        # 边距
+        self.margin = 0
         # 日志对象
         self.logger = logger
         self.logger_err = logger_err
@@ -69,7 +71,7 @@ class BaseActivity(QDialog, BaseView):
         self._main_layout = QVBoxLayout()
         self._main_layout.setSpacing(0)
         # 如果设置零边距，在窗口状态变更时(如最大化)，边角会出现空白区域
-        self._main_layout.setContentsMargins(0, 0, 0, 0)
+        self._main_layout.setContentsMargins(self.margin, self.margin, self.margin, self.margin)
         self.setLayout(self._main_layout)
         # 默认的遮罩层
         self.waiting_dialog = waiting_dialog()
@@ -85,6 +87,11 @@ class BaseActivity(QDialog, BaseView):
         提示弹出框
         '''
         pass
+
+    def isResizable(self):
+        """是否可调整
+        """
+        return self.minimumSize() != self.maximumSize()
 
     def resizeEvent(self, _event):
         '''
@@ -128,7 +135,7 @@ class BaseActivity(QDialog, BaseView):
         elif (event.button() == Qt.LeftButton) and (event.pos() in self._bottom_rect):
             self._bottom_drag = True
             event.accept()
-        elif (event.button() == Qt.LeftButton) and (event.y() < self.bar.height()):
+        elif (event.button() == Qt.LeftButton) and (event.y() <= self.bar.height()):
             self._move_drag = True
             self._move_drag_position = event.globalPos() - self.pos()
             event.accept()
@@ -154,7 +161,7 @@ class BaseActivity(QDialog, BaseView):
         '''
         判断鼠标位置是否移动到了边界以便更换鼠标样式
         '''
-        if self.isMaximized():
+        if self.isMaximized() or self.isFullScreen() or not self.isResizable():
             # 最大化时不可移动
             return
         if _.pos() in self._corner_rect:
@@ -263,4 +270,10 @@ class BaseActivity(QDialog, BaseView):
         return super(BaseActivity, self).eventFilter(target, event)
 
 
-
+    def paintEvent(self, event):
+        '''
+        由于是全透明背景窗口,重绘事件中绘制透明度为1的难以发现的边框,用于调整窗口大小
+        '''
+        painter = QPainter(self)
+        painter.setPen(QPen(QColor(255, 255, 255, 1), 2 * self.margin))
+        painter.drawRect(self.rect())

@@ -2,8 +2,7 @@ import math, sys
 from PyQt5.QtCore import Qt, QTimer, pyqtSignal, pyqtSlot, QRect
 from PyQt5.QtWidgets import QWidget, QApplication, QMainWindow, QTextEdit, QGridLayout, QPushButton
 from qtpy.QtGui import QPalette, QPainter, QBrush, QPen, QColor
-
-from ZzClient.widget.activity.modal import Loading, Spinner
+from widget.activity.modal import Loading, Spinner
 
 '''
 菊花测试

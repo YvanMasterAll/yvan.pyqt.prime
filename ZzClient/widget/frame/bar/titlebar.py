@@ -3,9 +3,8 @@ from PyQt5.QtGui import QWindowStateChangeEvent, QFont, QMouseEvent
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, \
     QLabel, QPushButton, QApplication
 from qtpy import QtGui
-
-from ZzClient.config.const import Config
-from ZzClient.widget.view import BaseView
+from config.const import Config
+from widget.view import BaseView
 
 '''
 标题栏
@@ -31,13 +30,8 @@ class TitleBar(BaseView):
         layout.setContentsMargins(self._padding, 0, self._padding, 0)
         layout.setSpacing(0)
         # 左侧添加4个对应的空白占位
-        for name in ('widgetMinimum', 'widgetMaximum', 'widgetNormal', 'widgetClose'):
-            widget = QWidget(self)
-            widget.setMinimumSize(self._radius, self._radius)
-            widget.setMaximumSize(self._radius, self._radius)
-            widget.setObjectName('TitleBar_%s' % name)
-            setattr(self, name, widget)
-            layout.addWidget(widget)
+        for i in range(4):
+            layout.addItem(QSpacerItem(24, 20, QSizePolicy.Fixed, QSizePolicy.Expanding))
         layout.addItem(QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum))
         # 标题
         self.labelTitle = QLabel(self, alignment=Qt.AlignCenter)
@@ -55,7 +49,7 @@ class TitleBar(BaseView):
             layout.addWidget(button)
 
     def configure(self):
-         # 支持设置背景
+        # 支持设置背景
         self.setAttribute(Qt.WA_StyledBackground, True)
         # 找到父控件(或者自身)，self.parent() or self
         self._root = self.parent()
@@ -110,21 +104,18 @@ class TitleBar(BaseView):
         显示隐藏最小化按钮
         '''
         self.buttonMinimum.setVisible(show)
-        self.widgetMinimum.setVisible(show)
 
     def showMaximizeButton(self, show=True):
         '''
         显示隐藏最大化按钮
         '''
         self.buttonMaximum.setVisible(show)
-        self.widgetMaximum.setVisible(show)
 
     def showNormalButton(self, show=True):
         '''
         显示隐藏还原按钮
         '''
         self.buttonNormal.setVisible(show)
-        self.widgetNormal.setVisible(show)
 
     def showEvent(self, event):
         super(TitleBar, self).showEvent(event)
@@ -148,7 +139,7 @@ class TitleBar(BaseView):
             self._root.showNormal()
         else:
             self._root.showMaximized()
-            
+
     def testWindowFlags(self, windowFlags):
         '''
         判断当前窗口是否有该flags

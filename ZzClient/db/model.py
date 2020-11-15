@@ -2,10 +2,6 @@ from peewee import *
 import datetime
 import uuid
 import logging
-from util.http import *
-from ZzClient.common.util.logger import logger_err
-import traceback
-from ZzClient.config.error import *
 
 '''
 数据库

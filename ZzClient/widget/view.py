@@ -1,11 +1,12 @@
 import abc
 from PyQt5.QtWidgets import QWidget, QFrame
 from qtpy import QtCore
-
-from ZzClient.common.loader.resource import ResourceLoader
-from ZzClient.bloc.app import Bloc_App
-from ZzClient.config.const import Config
-from ZzClient.config.theme import Theme
+from common.loader.resource import ResourceLoader
+from bloc.app import Bloc_App
+from common.util.route import RouteManager
+from config.const import Config
+from config.theme import Theme
+from common.loader.fontawesome import FontAwesome
 
 '''
 页面基类
@@ -16,6 +17,10 @@ class BaseView(QWidget):
     静态资源管理器
     '''
     resource: ResourceLoader = ResourceLoader()
+    '''
+    路由管理器
+    '''
+    router: RouteManager = RouteManager()
     '''
     全局数据块
     '''
@@ -28,6 +33,10 @@ class BaseView(QWidget):
     主题对象
     '''
     theme = Theme()
+    '''
+    图标字体
+    '''
+    fontawesome = FontAwesome()
 
     def set_style(self, name):
         '''
@@ -42,6 +51,8 @@ class BaseView(QWidget):
         '''
         初始化流程，set_ui > place > configure > set_signal
         '''
+        if hasattr(self, 'style_name'):
+            self.set_style(self.style_name)
         if hasattr(self, 'set_ui'):
             self.set_ui()
         if hasattr(self, 'place'):
@@ -50,3 +61,5 @@ class BaseView(QWidget):
             self.configure()
         if hasattr(self, 'set_bloc'):
             self.set_bloc()
+        if hasattr(self, 'set_signal'):
+            self.set_signal()

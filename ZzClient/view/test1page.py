@@ -2,8 +2,8 @@ from qtpy.QtWidgets import QFrame
 from qtpy import uic
 from os.path import join, dirname, abspath
 from qtpy.QtCore import Slot
-from ZzClient.widget.view import BaseView
-from util.storage import LocalStorage
+from widget.view import BaseView
+from common.util.storage import LocalStorage
 
 _ui = join(dirname(abspath(__file__)), '../widget/ui/frame/test1page.ui')
 

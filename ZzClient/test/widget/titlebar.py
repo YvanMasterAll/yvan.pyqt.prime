@@ -14,8 +14,7 @@ from PyQt5.QtCore import Qt, QPointF
 from PyQt5.QtGui import QWindowStateChangeEvent, QFont, QMouseEvent
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, \
     QLabel, QPushButton, QApplication, QDialog, QVBoxLayout
-
-from ZzClient.widget.view import BaseView
+from widget.view import BaseView
 
 __Author__ = 'Irony'
 __Copyright__ = 'Copyright (c) 2019'

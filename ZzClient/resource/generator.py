@@ -1,5 +1,5 @@
 import subprocess, os
-from util.storage import LocalStorage
+from common.util.storage import LocalStorage
 
 '''
 资源生成器
@@ -35,12 +35,17 @@ def generate_skin(theme):
 
 def generate_style(theme):
     icons = os.listdir('./img/{theme}/icon'.format(theme=theme))
+    fonts = os.listdir('./font'.format(theme=theme))
     qrc = './qss/theme/{theme}/style.qrc'.format(theme=theme)
     py = './qss/theme/{theme}/style_rc.py'.format(theme=theme)
     with open(qrc, 'w+') as f:
         f.write(u'<!DOCTYPE RCC>\n<RCC version="1.0">\n<qresource>\n')
         for item in icons:
             f.write(u'<file alias="icon/{item}">../../../img/{theme}/icon/{item}</file>\n'.format(item=item, theme=theme))
+        for item in fonts:
+            # 不打包雅黑字体，字体打包体积大
+            if item != 'Microsoft-YaHei.ttf' and item != 'Roboto-Regular.ttf':
+                f.write(u'<file alias="font/{item}">../../../font/{item}</file>\n'.format(item=item, theme=theme))
         f.write(u'</qresource>\n</RCC>')
         f.close()
 

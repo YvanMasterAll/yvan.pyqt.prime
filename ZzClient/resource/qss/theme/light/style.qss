@@ -1,9 +1,9 @@
 /*
  * Color:
 
-    background_light        #323338
-    background              #1F2020
-    background_deep         #000000
+    background_light        #333842
+    background              #282C34
+    background_deep         #21252B
     text                    #FFFEFE
     sub_text                #CDCDCD
 */
@@ -13,7 +13,7 @@
  */
 
 QFrame {
-    background: #323338;
+    background: #333842;
     font: "华文黑体", "PingFang SC", "Microsoft YaHei", "微软雅黑", "Arial", "Open Sans", sans-serif;s
 }
 
@@ -28,7 +28,7 @@ QLabel {
  */
 
 #TitleBar {
-    background-color: #323338;
+    background-color: #333842;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-top: 1px solid qlineargradient(x1:0,y1:0,x2:0,y2:1,stop:0 #888,stop:0.4 #777,stop:0.7 #666,stop:1 #555);

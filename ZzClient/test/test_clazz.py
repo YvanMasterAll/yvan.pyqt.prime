@@ -2,7 +2,7 @@
 
 if __name__ == '__main__':
     # 1).exec
-    # exec('from ZzClient.config.const import Config')
+    # exec('from const import Config')
     # print(Config().img_path)
 
     # 2).importlib

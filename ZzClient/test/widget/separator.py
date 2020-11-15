@@ -59,26 +59,26 @@ class Window(QWidget):
 
 Style = '''
 #Window {
-    background-color: #1F2020;
+    background-color: #282C34;
 }
 #bottomWidget {
-    background-color: #323338;
+    background-color: #333842;
 }
 Separator {
-    background-color: #323338;
+    background-color: #333842;
 }
 #Separator2 {
     border-bottom: 8px solid qlineargradient(
         x1:0,y1:1,x2:0,y2:0,
         stop:0 #313237,
-        stop:0.2 #323338,
-        stop:0.4 #323338,
+        stop:0.2 #333842,
+        stop:0.4 #333842,
         stop:0.44 #5B5C60
-        stop:0.54 #1F2020,
+        stop:0.54 #282C34,
         stop:0.70 #1C1D1D,
         stop:0.80 #4C4D4D,
-        stop:0.84 #1F2020,
-        stop:0.98 #1F2020,
+        stop:0.84 #282C34,
+        stop:0.98 #282C34,
         stop:1 #1D1E1E
     );
 }
@@ -86,12 +86,12 @@ Separator {
     border-bottom: 4px solid qlineargradient(
         x1:0,y1:1,x2:0,y2:0,
         stop:0 #313237,
-        stop:0.2 #323338,
-        stop:0.4 #323338,
+        stop:0.2 #333842,
+        stop:0.4 #333842,
         stop:0.44 #5B5C60
-        stop:0.52 #1F2020,
+        stop:0.52 #282C34,
         stop:0.86 #131313,
-        stop:0.98 #1F2020,
+        stop:0.98 #282C34,
         stop:1 #1D1E1E
     );
 }
@@ -100,14 +100,14 @@ Separator {
 #     border-bottom: 8px solid qlineargradient(
 #         x1:0,y1:1,x2:0,y2:0,
 #         stop:0 #313237,
-#         stop:0.2 #323338,
-#         stop:0.5 #323338,
+#         stop:0.2 #333842,
+#         stop:0.5 #333842,
 #         stop:0.54 #5B5C60
-#         stop:0.62 #1F2020,
+#         stop:0.62 #282C34,
 #         stop:0.80 #1C1D1D,
 #         stop:0.91 #46474C
-#         stop:0.95 #1F2020,
-#         stop:0.98 #1F2020
+#         stop:0.95 #282C34,
+#         stop:0.98 #282C34
 #         stop:1 #1D1E1E
 #     );
 # }

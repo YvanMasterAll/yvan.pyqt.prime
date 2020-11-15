@@ -1,101 +1,123 @@
-from qtpy import QtGui, QtCore
-from qtpy.QtWidgets import QScrollArea, QVBoxLayout, QFrame
-from qtpy.QtGui import QPainter, QColor, QPainterPath
-from qtpy.QtCore import Qt, QRectF, QEvent, QPoint
-import math
-from ZzClient.widget.view import BaseView
-from ZzClient.config.const import Config
-from PyQt5.QtCore import QObject
+from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtGui import QPixmap, QColor
+from PyQt5.QtWidgets import QHBoxLayout, QSpacerItem
+from qtpy import QtWidgets
+from bloc.home import Bloc_Navbar
+from common.loader.resource import ResourceLoader
+from common.util.func import clear_layout
+from common.util.route import RouteManager
+from widget.frame.button.navbutton import NavButton, TextAlign_Center, IconPosition_Top
+from widget.frame.separator.separator import Separator
+from widget.view import BaseView
 
 '''
-左侧导航栏
+导航栏
 '''
 
-class Navbar(BaseView, QScrollArea):
+class NavBar(BaseView, Bloc_Navbar):
+    style_name = 'home/navbar'
+    navs = []
+    _initial_nav = None
+    _current_nav = None
+
     def __init__(self, *args, **kwargs):
-        super(Navbar, self).__init__(*args, **kwargs)
+        super(NavBar, self).__init__(*args, **kwargs)
 
         self.procedure()
 
     def set_ui(self):
-        self.setObjectName('Navbar')
-        self.set_style('home/navbar')
+        self.create_navbutton()
 
-        # 固定宽度
-        self.setFixedWidth(Config().navbar_width)
-        # 导航栏
-        self.navigation = Navigation(self)
-        # 设置布局
-        self.layout = QVBoxLayout()
-        self.layout.addWidget(self.navigation)
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.setLayout(self.layout)
+    def create_navbutton(self):
+        self.navbuttons = []
+        separator = Separator(self, orientation='vertical')
+        separator.setFixedHeight(48)
+        separator.setFixedWidth(4)
+        self.navbuttons.append(separator)
+        for index, nav in enumerate(self.navs):
+            navbutton = self.navbutton_factory(nav)
+            self.navbuttons.append(navbutton)
+            if index < len(self.navs)-1:
+                separator = Separator(self, orientation='vertical')
+                separator.setFixedHeight(48)
+                separator.setFixedWidth(4)
+                self.navbuttons.append(separator)
 
-class Navigation(BaseView):
-    def __init__(self, *args, **kwargs):
-        super(BaseView, self).__init__(*args, **kwargs)
+    def navbutton_factory(self, nav):
+        navbutton = NavButton()
+        navbutton.setObjectName('NavButton_{name}'.format(name=nav['name']))
+        navbutton.setFixedHeight(70)
+        navbutton.setFixedWidth(74)
+        navbutton.setShowText(nav['label'])
+        navbutton.setShowIcon(True)
+        navbutton.setPaddingLeft(0)
+        navbutton.setPaddingRight(0)
+        navbutton.setPaddingTop(6)
+        navbutton.setPaddingBottom(4)
+        navbutton.setIconNormal(QPixmap(':icon/{icon}'.format(icon=nav['icon'])))
+        navbutton.setIconCheck(QPixmap(':icon/{icon}'.format(icon=nav['icon'])))
+        navbutton.setIconHover(QPixmap(':icon/{icon}'.format(icon=nav['icon'])))
+        navbutton.setTextAlign(TextAlign_Center)
+        navbutton.setFont(self.resource.qt_font_text_xs)
+        navbutton.setIconSize(QSize(34, 34))
+        navbutton.setIconPosition(IconPosition_Top)
+        navbutton.setNormalBgColor(QColor('transparent'))
+        navbutton.setHoverBgColor(QColor('transparent'))
+        navbutton.setCheckBgColor(QColor('transparent'))
+        navbutton.setNormalTextColor(self.resource.qt_color_sub_text)
+        navbutton.setHoverTextColor(self.resource.qt_color_text)
+        navbutton.setCheckTextColor(self.resource.qt_color_text)
+        navbutton.clicked.connect(self.on_clicked)
 
-        self.procedure()
+        return navbutton
 
-    def set_ui(self):
-        self.setObjectName("Navigation")
+    def on_clicked(self, checked):
+        button = self.sender()
+        name = button.objectName().replace('NavButton_', '')
+        if name != self._current_nav:
+            # 重置所有选项
+            buttons:[NavButton] = self.findChildren(NavButton)
+            for b in buttons:
+                b.setChecked(False)
+            # 选中所选项
+            button.setChecked(True)
+            # 触发导航
+            self.router.navigate_to(name)
+        else:
+            button.toggle()
 
-        self.setFixedWidth(Config().navbar_width)
-        self.backgroundColor = QColor('#FFFFFF')
-        self.selectedColor = QColor("#F0F0F0")
-        self.rowHeight = 40
-        self.currentIndex = 0
-        self.listItems = ["首页", "测试1", "测试2"]
-        # 安装事件拦截器
-        self.installEventFilter(self)
-        # 主窗口大小调整区域
-        self.window_zoom_zone = [QPoint(x, y) for x in range(0, 5) for y in range(5, self.height() - 5)]
+        self._current_nav = name
 
-    def addItem(self, title):
-        self.listItems.append(title)
+    def place(self):
+        layout = QHBoxLayout()
+        layout.setSpacing(8)
+        layout.setContentsMargins(0, 0, 0, 4)
+        for navbutton in self.navbuttons:
+            layout.addWidget(navbutton)
 
-        self.update()
+        layout.addSpacerItem(QSpacerItem(0, 0, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum))
 
-    def paintEvent(self, event):
-        painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing, True)
+        self.setLayout(layout)
 
-        # Draw background color
-        painter.setPen(Qt.NoPen)
-        painter.setBrush(self.backgroundColor)
-        painter.drawRoundedRect(self.rect(), 5, 5)
+    def re_place(self):
+        layout = self.layout()
+        clear_layout(layout)
+        self.create_navbutton()
+        for navbutton in self.navbuttons:
+            layout.addWidget(navbutton)
 
-        # Draw items
-        count = 0
-        for str in self.listItems:
-            itemPath = QPainterPath()
-            itemPath.addRect(0, count * self.rowHeight, self.width(), self.rowHeight)
+        layout.addSpacerItem(QSpacerItem(0, 0, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum))
 
-            if self.currentIndex == count:
-                painter.setPen(QColor("#00B379"))
-                painter.fillPath(itemPath, self.selectedColor)
-            else:
-                painter.setPen(QColor("#2A2A2A"))
-                painter.fillPath(itemPath, self.backgroundColor)
+    def on_module_loaded(self, navs):
+        self.navs = navs
+        self.re_place()
+        self.configure()
 
-            painter.drawText(QRectF(0, count * self.rowHeight, self.width(), self.rowHeight),
-                             Qt.AlignCenter | Qt.AlignHCenter, str)
-
-            count += 1
-
-    def eventFilter(self, obj, event):
-        if event.type() == QEvent.MouseButtonPress:
-            # 左侧边界不拦截事件，放路给主窗口调整窗口大小
-            if event.pos() in self.window_zoom_zone:
-                return QObject.eventFilter(self, obj, event)
-            self._mousePressEvent(event)
-            return True
-
-        return QObject.eventFilter(self, obj, event)
-
-    def _mousePressEvent(self, event):
-        if event.pos().y() / self.rowHeight < len(self.listItems):
-            self.currentIndex = math.floor(event.y() / self.rowHeight)
-            self.parent().bloc.on_navbar_changed.emit(self.currentIndex)
-
-            self.update()
+    def configure(self):
+        if len(self.navs) == 0:
+            return
+        # 初始默认项
+        if not self._initial_nav:
+            self._initial_nav = self.navs[0]['name']
+        button:NavButton = self.findChild(NavButton, 'NavButton_{name}'.format(name=self._initial_nav))
+        button.click()

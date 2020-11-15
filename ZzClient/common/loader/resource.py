@@ -1,11 +1,15 @@
 import threading
 import qtawesome
 from PyQt5 import QtGui
-from PyQt5.QtGui import qGray, qRgba, qAlpha, QColor, QFont
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import qGray, qRgba, qAlpha, QColor, QFont, QFontDatabase, QPixmap, QPainter
+from six import unichr
 
-from ZzClient.config.theme import Theme
-from decorator.lazy_property import Lazy
-from ZzClient.config.const import Config
+from common.util.route import RouteManager
+from config.route import routes, menus
+from config.theme import Theme
+from common.decorator.lazy_property import Lazy
+from config.const import Config
 
 '''
 静态资源加载类避免重复实例化
@@ -31,6 +35,11 @@ class ResourceLoader:
         return ResourceLoader._instance
 
     '''
+    图标字体
+    '''
+    iconFontNames = {}
+
+    '''
     颜色资源
     '''
 
@@ -43,8 +52,24 @@ class ResourceLoader:
         return QColor(Theme.palette.COLOR_BACKGROUND_NORMAL)
 
     @Lazy
-    def qt_color_background_deep(self):
+    def qt_color_background_dark(self):
         return QColor(Theme.palette.COLOR_BACKGROUND_DARK)
+
+    @Lazy
+    def qt_color_primary_light(self):
+        return QColor(Theme.palette.COLOR_PRIMARY_LIGHT)
+
+    @Lazy
+    def qt_color_primary_normal(self):
+        return QColor(Theme.palette.COLOR_PRIMARY_NORMAL)
+
+    @Lazy
+    def qt_color_background_dark(self):
+        return QColor(Theme.palette.COLOR_PRIMARY_DARK)
+
+    @Lazy
+    def qt_color_gradient_primary(self):
+        return QColor(Theme.palette.COLOR_GRADIENT_PRIMARY)
 
     @Lazy
     def qt_color_text(self):
@@ -64,12 +89,12 @@ class ResourceLoader:
         return self.make_font(14)
 
     @Lazy
-    def qt_font_text_xs(self):
+    def qt_font_text_sm(self):
         # 二级正文，三级标题
         return self.make_font(13)
 
     @Lazy
-    def qt_font_text_sm(self):
+    def qt_font_text_xs(self):
         # 三级正文
         return self.make_font(12)
 
@@ -94,7 +119,7 @@ class ResourceLoader:
     @Lazy
     def qt_icon_project_ico(self):
         # 项目图标
-        return self.render_icon("app.ico")
+        return self.render_icon("logo_neat.png")
 
     @Lazy
     def qt_icon_project_png(self) -> QtGui.QIcon:
@@ -121,8 +146,9 @@ class ResourceLoader:
     通用函数
     '''
 
+    # TODO: Microsoft YaHei
     @staticmethod
-    def make_font(size: int, weight: int = 2, family: str = "微软雅黑") -> QtGui.QFont:
+    def make_font(size: int, weight: int = 2, family: str = "Microsoft YaHei") -> QtGui.QFont:
         '''
         创建一个字体，如此不必重复的
         实例化-设置-调用
@@ -172,3 +198,58 @@ class ResourceLoader:
                 image.setPixel(x, y, qRgba(gray, gray, gray, qAlpha(color)))
         icon.addPixmap(QtGui.QPixmap.fromImage(image), QtGui.QIcon.Normal, QtGui.QIcon.On)
         return icon
+
+    @classmethod
+    def load_icon_font(cls):
+        '''
+        加载图标字体
+        '''
+        fontawesome_id = QFontDatabase().addApplicationFont(':font/fontawesome-webfont.ttf')
+        fontawesome_name = QFontDatabase.applicationFontFamilies(fontawesome_id)[0]
+        cls.iconFontNames['fontawesome'] = fontawesome_name
+
+    @classmethod
+    def make_icon_font(cls, widget, type, size=24):
+        '''
+        图标字体
+        '''
+        if len(cls.iconFontNames) == 0:
+            cls.load_icon_font()
+
+        font = QFont(cls.iconFontNames[type[0]], size)
+        widget.setFont(font)
+        widget.setText(unichr(type[1]))
+
+    @classmethod
+    def make_icon_pix(cls, type, color='#FFFEFE', size=24) -> QPixmap:
+        '''
+        图标字体转Pixmap
+        '''
+        if len(cls.iconFontNames) == 0:
+            cls.load_icon_font()
+
+        pix = QPixmap(size, size)
+        pix.fill(Qt.transparent)
+
+        painter = QPainter()
+        painter.begin(pix)
+        painter.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing)
+        painter.setPen(QColor(color))
+        painter.setBrush(QColor(color))
+        font = QFont(cls.iconFontNames[type[0]], size)
+        painter.setFont(font)
+
+        painter.drawText(pix.rect(), Qt.AlignCenter, unichr(type[1]))
+
+        return pix
+
+    @classmethod
+    def load_modules(cls):
+        '''
+        加载模块
+        '''
+        # 1).读取模块配置
+        # 2).加载模块
+        _routes = routes
+        _menus = menus
+        RouteManager().load_modules(_routes, _menus)

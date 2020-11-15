@@ -1,4 +1,7 @@
 import traceback
+
+from PyQt5.QtWidgets import QWidget, QLayoutItem, QLayout
+
 from .logger import logger_err
 import sys
 
@@ -62,3 +65,28 @@ def dumpStructure(widget, space=0):
         ' ' * space, widget.metaObject().className(), widget.objectName()))
     for c in widget.children():
         dumpStructure(c, space + 4)
+
+'''
+移除所有子部件
+'''
+def clear_widget(widget: QWidget):
+    w = widget.findChild(QWidget)
+    while w:
+        w.deleteLater()
+        del w
+        w = widget.findChild(QWidget)
+
+'''
+清空布局
+'''
+def clear_layout(layout:QLayout):
+    item = layout.takeAt(0)
+    while item:
+        w = item.widget()
+        l = item.layout()
+        if w:
+            w.setParent(None)
+        if l:
+            clear_layout(l)
+            l.setParent(None)
+        item = layout.takeAt(0)

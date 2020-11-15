@@ -1,16 +1,28 @@
-from PyQt5.QtGui import QIcon, QKeySequence
+from PyQt5.QtGui import QIcon, QKeySequence, QFontDatabase, QFont
 from PyQt5.QtWidgets import QStackedWidget, QHBoxLayout, QDesktopWidget, QVBoxLayout
 from qtpy.QtCore import Qt
 import sys
-from ZzClient.config.theme import Theme
-from ZzClient.common.util.func import handle_error
-from ZzClient.common.loader.inspector import ConnectStyleSheetInspector
-from ZzClient.config.const import Config
-from ZzClient.widget.application import QSingleApplication
+from config.theme import Theme
+from common.util.func import handle_error
+from common.loader.inspector import ConnectStyleSheetInspector
+from config.const import Config
+from widget.application import QSingleApplication
 from ZzClient.view.home.index import HomePage
 import cgitb
 import os
-from loader.resource import ResourceLoader
+from common.loader.resource import ResourceLoader
+
+'''
+待添加组件
+- 全局Loading
+- 表单 + 查询
+- 列表 + 分页
+- 模态层
+- Toast + Popmenu + Dropmenu
+- Drawer
+- 树结构
+- Tabbar
+'''
 
 def start():
     app = QSingleApplication("zzclient", sys.argv)
@@ -25,12 +37,21 @@ def start():
         app.setQuitOnLastWindowClosed(True)
         # 应用图标
         app.setWindowIcon(ResourceLoader().qt_icon_project_ico)
+        # 设置主题样式
+        Theme.load()
         # 设置字体
         # fontDB = QFontDatabase()
         # fontDB.addApplicationFont(':/font/Roboto-Regular.ttf')
         # app.setFont(QFont('Roboto'))
-        # 设置主题样式
-        Theme.load()
+        # 设置雅黑字体
+        # fontDB = QFontDatabase()
+        # fontDB.addApplicationFont('../resource/font/Microsoft-YaHei.ttf')
+        # app.setFont(QFont('Microsoft YaHei'))
+        # 图标字体
+        ResourceLoader.load_icon_font()
+        # 加载模块
+        ResourceLoader.load_modules()
+        # 创建窗体
         window = HomePage()
         # 样式注入器
         ConnectStyleSheetInspector(main_window=window,

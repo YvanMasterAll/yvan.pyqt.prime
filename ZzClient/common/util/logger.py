@@ -1,5 +1,5 @@
 import logging
-from ZzClient.config.const import Config
+from config.const import Config
 
 '''
 日志记录

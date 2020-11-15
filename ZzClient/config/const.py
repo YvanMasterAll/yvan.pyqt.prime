@@ -3,7 +3,7 @@ import threading
 import qtpy
 import os
 
-from util.storage import LocalStorage
+from common.util.storage import LocalStorage
 
 __class_path__ = os.path.abspath(os.path.dirname(__file__))
 __root_path__ = os.path.abspath(os.path.join(__class_path__, os.path.pardir))
@@ -25,7 +25,7 @@ class Config:
     '''
     属性项
     '''
-    navbar_width    = 100           # 侧边导航栏宽度
+    sidebar_width    = 170          # 侧边栏宽度
     window_zoom_critical   = 5      # 窗口大小调整边界
     window_shadow_width = 5         # 窗口阴影宽度
     qt_version      = tuple(int(v) for v in qtpy.QT_VERSION.split('.')) # Qt版本

@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QTableView, QWidget, QPushButton
-
-from commons import dumpStructure
+from common.util.func import dumpStructure
 
 '''
 UI结构打印测试

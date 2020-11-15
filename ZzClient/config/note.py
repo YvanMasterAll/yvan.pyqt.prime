@@ -25,3 +25,8 @@
 悬停属性
 '''
 # self.setAttribute(Qt.WA_Hover, True)
+
+'''
+父类函数
+'''
+# super(ToolTip, self).eventFilter(widget, event)

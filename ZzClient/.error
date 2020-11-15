@@ -1,0 +1,446 @@
+2020-11-13 09:09:55,767 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 143, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 127, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 30, in set_ui
+    self.titlebar = NavTitleBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 44, in set_ui
+    self.navbar = NavBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 28, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 54, in procedure
+    self.configure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 106, in configure
+    name = navs[self.initial_index]['name']
+IndexError: list index out of range
+
+2020-11-13 09:31:13,115 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 143, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 127, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 30, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 37, in set_ui
+    self.create_empty_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 87, in create_empty_menubutton
+    print(icon.pixmap())
+TypeError: arguments did not match any overloaded call:
+  pixmap(self, QSize, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): not enough arguments
+  pixmap(self, int, int, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): not enough arguments
+  pixmap(self, int, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): not enough arguments
+  pixmap(self, QWindow, QSize, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): not enough arguments
+
+2020-11-13 09:31:46,133 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 143, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 127, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 30, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 37, in set_ui
+    self.create_empty_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 87, in create_empty_menubutton
+    print(icon.pixmap(icon, QSize(34, 34)))
+TypeError: arguments did not match any overloaded call:
+  pixmap(self, QSize, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'QIcon'
+  pixmap(self, int, int, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'QIcon'
+  pixmap(self, int, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'QIcon'
+  pixmap(self, QWindow, QSize, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'QIcon'
+
+2020-11-13 09:31:59,387 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 143, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 127, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 30, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 50, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 37, in set_ui
+    self.create_empty_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 87, in create_empty_menubutton
+    print(icon.pixmap(self, QSize(34, 34)))
+TypeError: arguments did not match any overloaded call:
+  pixmap(self, QSize, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'SideBar'
+  pixmap(self, int, int, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'SideBar'
+  pixmap(self, int, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'SideBar'
+  pixmap(self, QWindow, QSize, mode: QIcon.Mode = QIcon.Normal, state: QIcon.State = QIcon.Off): argument 1 has unexpected type 'SideBar'
+
+2020-11-13 13:48:56,562 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 32, in set_ui
+    self.create_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 38, in create_menubutton
+    menubutton = MrxyButton.by_icon_with_text(menu['label'], qtawesome.icon(menu['icon'], color=self.resource.qt_color_text), self)
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/qtawesome/__init__.py", line 145, in icon
+    return _instance().icon(*names, **kwargs)
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/qtawesome/iconic_font.py", line 269, in icon
+    names[i]))
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/qtawesome/iconic_font.py", line 317, in _parse_options
+    prefix, chars = self._get_prefix_chars(names)
+  File "/Users/yiqiang/.conda/envs/ZzClient/lib/python3.7/site-packages/qtawesome/iconic_font.py", line 351, in _get_prefix_chars
+    raise Exception(error)
+Exception: Invalid font prefix "navbar_home"
+
+2020-11-13 13:53:54,293 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 32, in set_ui
+    self.create_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 38, in create_menubutton
+    menubutton = MrxyButton.by_icon_with_text(menu['label'], qtawesome.icon(menu['icon'], color=self.resource.qt_color_text), self)
+KeyError: 'label'
+
+2020-11-13 13:54:10,665 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 32, in set_ui
+    self.create_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 39, in create_menubutton
+    menubutton.setObjectName('MenuButton_{name}'.format(name=menu['name']))
+KeyError: 'name'
+
+2020-11-13 13:57:16,925 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 72, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    timer = QTimer(4000, lambda :ResourceLoader.load_modules())
+TypeError: QTimer(parent: QObject = None): argument 1 has unexpected type 'int'
+
+2020-11-13 13:59:49,227 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 78, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 62, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 25, in __init__
+    self.menus = self.router.menus[0]['children']
+IndexError: list index out of range
+
+2020-11-13 15:28:02,353 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 60, in load_modules
+    self.on_module_loaded.emit(self.__routes)
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:29:07,892 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 60, in load_modules
+    self.on_module_loaded.emit({})
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:30:32,062 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 62, in load_modules
+    self.on_module_loaded.emit(self.__routes)
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:30:52,256 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 60, in load_modules
+    self.on_module_loaded.emit(self.__routes)
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:31:05,869 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 60, in load_modules
+    self.on_module_loaded.emit(self.__routes)
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:31:17,101 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 60, in load_modules
+    self.on_module_loaded.emit([])
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:31:41,203 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 61, in load_modules
+    print(self.on_module_loaded)
+TypeError: RouteManager cannot be converted to PyQt5.QtCore.QObject in this context
+
+2020-11-13 15:32:42,323 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 53, in start
+    ResourceLoader.load_modules()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/loader/resource.py", line 256, in load_modules
+    RouteManager().load_modules(_routes, _menus, _home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 65, in load_modules
+    self.navigate_to(home)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/common/util/route.py", line 71, in navigate_to
+    navigation = Navigation(name=route_name)
+TypeError: __init__() missing 1 required positional argument: 'path'
+
+2020-11-13 21:44:14,158 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 30, in set_ui
+    self.titlebar = NavTitleBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 44, in set_ui
+    self.navbar = NavBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 23, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 63, in procedure
+    self.set_signal()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/bloc/home.py", line 30, in set_signal
+    timer = QTimer(0, lambda :self.router.on_module_loaded.connect(self.on_module_loaded))
+TypeError: QTimer(parent: QObject = None): argument 1 has unexpected type 'int'
+
+2020-11-13 21:44:27,775 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 30, in set_ui
+    self.titlebar = NavTitleBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 44, in set_ui
+    self.navbar = NavBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 23, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 63, in procedure
+    self.set_signal()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/bloc/home.py", line 30, in set_signal
+    timer = QTimer(self, 0, lambda :self.router.on_module_loaded.connect(self.on_module_loaded))
+TypeError: QTimer(parent: QObject = None): too many arguments
+
+2020-11-13 21:52:18,436 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 30, in set_ui
+    self.titlebar = NavTitleBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 44, in set_ui
+    self.navbar = NavBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 23, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 57, in procedure
+    self.place()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 92, in place
+    for navbutton in self.navbuttons:
+AttributeError: 'NavBar' object has no attribute 'navbuttons'
+
+2020-11-13 22:17:47,560 - func.py[line:12] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 30, in set_ui
+    self.titlebar = NavTitleBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 26, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/frame/bar/nav_titlebar.py", line 44, in set_ui
+    self.navbar = NavBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 23, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 57, in procedure
+    self.place()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/navbar.py", line 92, in place
+    for navbutton in self.navbuttons:
+AttributeError: 'NavBar' object has no attribute 'navbuttons'
+
+2020-11-14 12:11:11,987 - func.py[line:15] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 27, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 33, in set_ui
+    self.create_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 38, in create_menubutton
+    for index, menu in enumerate(self.menus):
+AttributeError: 'SideBar' object has no attribute 'menus'
+
+2020-11-14 12:20:10,899 - func.py[line:15] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 27, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 33, in set_ui
+    self.create_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 38, in create_menubutton
+    if self.menu['children'] == None:
+KeyError: 'children'
+
+2020-11-14 13:31:49,018 - func.py[line:15] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 71, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 55, in start
+    window = HomePage()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 20, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/index.py", line 33, in set_ui
+    self.sidebar = SideBar(self)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 27, in __init__
+    self.procedure()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/view.py", line 55, in procedure
+    self.set_ui()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 33, in set_ui
+    self.create_menubutton()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/home/sidebar.py", line 40, in create_menubutton
+    if self.menu['children'] == None:
+KeyError: 'children'
+

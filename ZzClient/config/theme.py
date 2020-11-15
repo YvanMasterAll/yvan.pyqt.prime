@@ -3,8 +3,8 @@ import threading
 from os.path import join, dirname, abspath
 from qtpy.QtGui import QPalette, QColor, QFont
 from quamash import QApplication
-from ZzClient.config.const import Config
-from ZzClient.common.util.storage import LocalStorage
+from config.const import Config
+from common.util.storage import LocalStorage
 import importlib
 
 '''

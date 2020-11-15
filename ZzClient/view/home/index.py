@@ -1,18 +1,22 @@
 from PyQt5.QtGui import QIcon, QKeySequence, QColor
 from PyQt5.QtWidgets import QStackedWidget, QHBoxLayout, QDesktopWidget, QVBoxLayout
-from ZzClient.bloc.home import Bloc_Home
-from home.navbar import Navbar
-from test1page import Test1Page
-from test2page import Test2Page
-from ZzClient.widget.view import BaseView
-from ZzClient.widget.base_activity import BaseActivity
-from ZzClient.widget.frame.bar.titlebar import TitleBar
+from bloc.home import Bloc_Home
+from view.home.pager import Pager
+from view.test1page import Test1Page
+from view.test2page import Test2Page
+from view.home.navbar import NavBar
+from view.home.sidebar import SideBar
+from widget.view import BaseView
+from widget.base_activity import BaseActivity
+from widget.frame.bar.nav_titlebar import NavTitleBar
 
 '''
 主页
 '''
 
 class HomePage(BaseActivity, Bloc_Home):
+    style_name = 'home/index'
+
     def __init__(self, *args, **kwargs):
         super(HomePage, self).__init__(*args, **kwargs)
 
@@ -22,34 +26,30 @@ class HomePage(BaseActivity, Bloc_Home):
 
     def set_ui(self):
         self.setObjectName("Home")
-        self.setWindowIcon(QIcon('resource/img/favicon.ico'))
-        self.set_style('home/index')
+        self.setWindowIcon(QIcon(':icon/favicon.ico'))
 
         # 标题栏
-        self.titlebar = TitleBar(self, title="主页")
+        self.titlebar = NavTitleBar(self)
         self.bar = self.titlebar
-        # 左侧导航
-        self.navbar = Navbar(self)
-        # 主体内容
-        self.content = QStackedWidget()
-        self.content.setObjectName("Pager")
-        self.content_test1 = Test1Page(self)
-        self.content_test1.setObjectName("Test1Page")
-        self.content_test2 = Test2Page(self)
-        self.content_test2.setObjectName("Test2Page")
-        # 分页管理
-        self.content.addWidget(self.content_test1)
-        self.content.addWidget(self.content_test2)
-        self.content.setCurrentIndex(1)
+        # 侧边栏
+        self.sidebar = SideBar(self)
+        # 分页器
+        self.pager = Pager()
+        self.pager.setObjectName("Pager")
 
     def place(self):
         self.layout = QVBoxLayout()
+        self.layout.setSpacing(0)
+        self.layout_body = QHBoxLayout()
+        self.layout_body.setContentsMargins(0, 0, 0, 0)
+        self.layout_content = QVBoxLayout()
         # 标题栏
         self.layout.addWidget(self.titlebar)
+        # 侧边栏
+        self.layout_body.addWidget(self.sidebar)
+        # 分页器
+        self.layout_content.addWidget(self.pager)
 
-        self.layout_content = QHBoxLayout()
-        self.layout_content.addWidget(self.navbar)
-        self.layout_content.addWidget(self.content)
-
-        self.layout.addLayout(self.layout_content)
+        self.layout_body.addLayout(self.layout_content)
+        self.layout.addLayout(self.layout_body)
         self.addLayout(self.layout)

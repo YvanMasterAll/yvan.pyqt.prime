@@ -1,8 +1,8 @@
-from model import User
-from util.http import *
+from .model import User
+from common.util.http import *
 import traceback
-from ZzClient.config.error import *
-from util.logger import logger_err
+from config.error import *
+from common.util.logger import logger_err
 
 '''
 服务类

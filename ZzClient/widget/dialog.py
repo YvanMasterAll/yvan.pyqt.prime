@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMessageBox, QDialog, QHBoxLayout, QLabel
-from ZzClient.common.loader.resource import ResourceLoader
+from common.loader.resource import ResourceLoader
 
 '''
 常用弹窗集合

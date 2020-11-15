@@ -4,6 +4,11 @@ import re
 import shutil
 import qtsass
 
+'''
+修改点
+1).QWidget > border: 0px solid #32414B;
+'''
+
 HEADER_SCSS = '''// ---------------------------------------------------------------------------
 //
 //    File created programmatically
@@ -88,7 +93,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 QSS_FILEPATH = os.path.join(BASE_DIR, 'test.qss')
 MAIN_SCSS_FILEPATH = os.path.join(BASE_DIR, 'scss/main.scss')
 VARIABLES_SCSS_FILEPATH = os.path.join(BASE_DIR, 'scss/_variables.scss')
-from ZzClient.resource.qss.theme.dark.palette import DarkPalette
+from qss.theme.dark.palette import DarkPalette
 
 
 def create_qss(qss_filepath=QSS_FILEPATH, main_scss_filepath=MAIN_SCSS_FILEPATH,
