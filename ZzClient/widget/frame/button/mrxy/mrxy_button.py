@@ -962,7 +962,9 @@ class MrxyButton(QPushButton):
 
         if event.button() == Qt.LeftButton:
             if not self.hovering:
-                super(MrxyButton, self).enterEvent(QEvent.None_)
+                super(MrxyButton, self).enterEvent(None)
+                # TypeError: enterEvent(self, QEvent): argument 1 has unexpected type 'Type'
+                # super(MrxyButton, self).enterEvent(QEvent.None_)
 
             self.pressing = True
             self.press_pos = self.mouse_pos

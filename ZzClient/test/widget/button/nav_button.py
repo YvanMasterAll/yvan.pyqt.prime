@@ -4,8 +4,9 @@ from PyQt5.QtGui import QPixmap, QColor, QFontDatabase, QFont, QBrush
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QApplication, QPushButton, QHBoxLayout, QSpacerItem
 from qtpy import QtWidgets
 
-import resource.qss.theme.dark.style_rc
+import resources.qss.theme.dark.style_rc
 from common.loader.resource import ResourceLoader
+from config.theme import Theme
 from widget.frame.button.navbutton import NavButton, TextAlign_Center, IconPosition_Top
 
 Style = '''
@@ -89,10 +90,11 @@ class Window(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    # Theme.load()
     app.setStyleSheet(Style)
-    fontDB = QFontDatabase()
-    font_id = fontDB.addApplicationFont(':font/Microsoft-YaHei.ttf')
-    fontName = QFontDatabase.applicationFontFamilies(font_id)[0]
+    # fontDB = QFontDatabase()
+    # font_id = fontDB.addApplicationFont(':font/Microsoft-YaHei.ttf')
+    # fontName = QFontDatabase.applicationFontFamilies(font_id)[0]
     app.setFont(QFont('Microsoft YaHei'))
     window = Window()
     window.show()

@@ -2,8 +2,9 @@ import sys
 from PyQt5.QtCore import QSize, Qt, QObject, QPoint, QTimer
 from PyQt5.QtGui import QPixmap, QColor, QFontDatabase, QFont, QBrush, QIcon, QLinearGradient, QGradient
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QApplication, QPushButton, QHBoxLayout, QSpacerItem
-from qtpy import QtCore, QtWidgets
-import resource.qss.theme.dark.style_rc
+from qtpy import QtCore, QtWidgets, QtGui
+import resources.qss.theme.dark.style_rc
+from bloc.app import Bloc_App
 from config.theme import Theme
 from view.home.sidebar import SideBar
 from widget.frame.button.mrxy.mrxy_button import MrxyButton
@@ -20,15 +21,19 @@ class Window(QWidget):
         super(Window, self).__init__(*args, **kwargs)
 
         self.resize(500, 500)
+        self.setStyleSheet(Style)
         layout = QVBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(layout)
         sidebar = SideBar(self)
         layout.addWidget(sidebar)
 
+    def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        Bloc_App().app_closed.emit()
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setStyleSheet(Style)
+    Theme.load()
     # fontDB = QFontDatabase()
     # font_id = fontDB.addApplicationFont(':font/Microsoft-YaHei.ttf')
     # fontName = QFontDatabase.applicationFontFamilies(font_id)[0]

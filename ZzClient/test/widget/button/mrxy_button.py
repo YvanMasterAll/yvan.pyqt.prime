@@ -14,7 +14,7 @@ from widget.frame.button.mrxy.winmax_button import WinMaxButton
 from widget.frame.button.mrxy.winmenu_button import WinMenuButton
 from widget.frame.button.mrxy.winmin_button import WinMinButton
 from widget.frame.button.mrxy.winrestore_button import WinRestoreButton
-import resource.qss.theme.dark.style_rc
+import resources.qss.theme.dark.style_rc
 
 class Window(QWidget):
     def __init__(self, *args, **kwargs):

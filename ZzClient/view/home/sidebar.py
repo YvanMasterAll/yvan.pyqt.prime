@@ -17,6 +17,7 @@ import qtawesome
 
 class SideBar(BaseView, Bloc_SideBar):
     style_name = 'home/sidebar'
+
     menu = None
     menu_height = 40
     empty_menu_height = 80
@@ -52,7 +53,7 @@ class SideBar(BaseView, Bloc_SideBar):
             menubutton.icon_text_padding = 14
             # 设置颜色
             menubutton.setNormalColor(QColor('transparent'))
-            hover_color = self.resource.qt_color_background_light
+            hover_color = self.resource.qt_color_background
             hover_color.setAlpha(160)
             menubutton.setHoverColor(hover_color)
             press_color = self.resource.qt_color_background_light

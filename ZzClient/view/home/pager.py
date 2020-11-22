@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QStackedWidget, QWidget
 from common.util.route import Navigation
+from party.WidgetAnimationFramework.StackedWidgetAnimation.StackedWidgetAnimation import StackedWidgetAnimation
 from widget.view import BaseView
 import importlib
 

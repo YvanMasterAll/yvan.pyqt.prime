@@ -1,5 +1,7 @@
 from PyQt5.QtGui import QIcon, QKeySequence, QColor
 from PyQt5.QtWidgets import QStackedWidget, QHBoxLayout, QDesktopWidget, QVBoxLayout
+from qtpy import QtGui
+
 from bloc.home import Bloc_Home
 from view.home.pager import Pager
 from view.test1page import Test1Page
@@ -26,7 +28,6 @@ class HomePage(BaseActivity, Bloc_Home):
 
     def set_ui(self):
         self.setObjectName("Home")
-        self.setWindowIcon(QIcon(':icon/favicon.ico'))
 
         # 标题栏
         self.titlebar = NavTitleBar(self)
@@ -53,3 +54,7 @@ class HomePage(BaseActivity, Bloc_Home):
         self.layout_body.addLayout(self.layout_content)
         self.layout.addLayout(self.layout_body)
         self.addLayout(self.layout)
+
+    def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        # 程序关闭
+        self.global_bloc.app_closed.emit()

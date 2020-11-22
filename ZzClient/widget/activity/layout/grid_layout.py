@@ -1,8 +1,6 @@
 from PyQt5.QtCore import QPoint, QEasingCurve, Qt, QPropertyAnimation
 from PyQt5.QtWidgets import QScrollArea, QWidget
 
-from widget.frame.card.zoom_card import ZoomCard
-
 '''
 网格布局
 '''
@@ -18,6 +16,7 @@ class GridLayout(QScrollArea):
         super(GridLayout, self).__init__(*args, **kwargs)
 
         self.center_widget = QWidget(self)
+        self.center_widget.setObjectName("Content")
         self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.setWidget(self.center_widget)
 
@@ -43,11 +42,11 @@ class GridLayout(QScrollArea):
         gpw_height = self.fixed_height
         bar_width = self.verticalScrollBar().width()
         # 一列数量
-        col_count = max((self.center_widget.width()-self.item_spacing_h-bar_width) / (gpw_width + self.item_spacing_h), 1)
+        col_count = max(int((self.center_widget.width()-self.item_spacing_h-bar_width) / (gpw_width + self.item_spacing_h)), 1)
         if col_count > len(self.widgets):
             col_count = len(self.widgets)
         # 行数
-        row_count = max((len(self.widgets) + col_count - 1) / col_count, 1)
+        row_count = max(int((len(self.widgets) + col_count - 1) / col_count), 1)
         total_height = row_count * (gpw_height + self.item_spacing_v) + self.item_spacing_v*2
         self.center_widget.setMinimumHeight(total_height)
         self.center_widget.resize(self.center_widget.width(), total_height)

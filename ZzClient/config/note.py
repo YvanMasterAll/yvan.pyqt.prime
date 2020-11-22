@@ -30,3 +30,27 @@
 父类函数
 '''
 # super(ToolTip, self).eventFilter(widget, event)
+
+'''
+判断系统类型
+'''
+# if not family:
+# if platform.system().lower() == 'darwin':
+# family = ".AppleSystemUIFont"
+# else:
+# family = "Microsoft Yahei"
+
+'''
+画圆角
+'''
+
+# QPainterPath path;
+# path.moveTo(rect.topRight() - QPointF(radius, 0));
+# path.lineTo(rect.topLeft() + QPointF(radius, 0));
+# path.quadTo(rect.topLeft(), rect.topLeft() + QPointF(0, radius));
+# path.lineTo(rect.bottomLeft() + QPointF(0, -radius));
+# path.quadTo(rect.bottomLeft(), rect.bottomLeft() + QPointF(radius, 0));
+# path.lineTo(rect.bottomRight() - QPointF(radius, 0));
+# path.quadTo(rect.bottomRight(), rect.bottomRight() + QPointF(0, -radius));
+# path.lineTo(rect.topRight() + QPointF(0, radius));
+# path.quadTo(rect.topRight(), rect.topRight() + QPointF(-radius, -0));

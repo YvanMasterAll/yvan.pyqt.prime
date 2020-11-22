@@ -2,6 +2,8 @@ from PyQt5.QtCore import Qt, QRect, QRectF, QPoint
 from PyQt5.QtGui import QPixmap, QPainter, QFontMetrics, QPainterPath, QColor
 from PyQt5.QtWidgets import QScrollArea
 import math
+
+from common.loader.resource import ResourceLoader
 from widget.frame.button.mrxy.mrxy_button import NolinearType
 from widget.frame.button.mrxy.waterzoom_button import WaterZoomButton
 
@@ -34,8 +36,8 @@ class ZoomCard(WaterZoomButton):
         self.title = model.title
         self.subTitle = model.subTitle
 
-        self.setNormalColor(QColor('#FFFFFF'))
-        self.setHoverColor(QColor('#FFFFFF'))
+        self.setNormalColor(ResourceLoader().qt_color_text)
+        self.setHoverColor(ResourceLoader().qt_color_text)
         self.setChoking(10)
         self.setRadius(5, 10)
 

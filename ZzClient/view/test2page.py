@@ -19,4 +19,4 @@ class Test2Page(BaseView, QFrame):
         self.setStyleSheet("#Test2Page{background-color: 'yellow'; border-image: url(:icon/window_maximize.png); max-height:100px;}")
         self.layout = self.findChild(QVBoxLayout, "main")
         self.button = self.findChild(QPushButton, 'pushButton')
-        self.resource.make_icon_font(self.button, self.fontawesome.icon_align_center, 24)
+        self.resource.make_iconfont(self.button, self.fontawesome.icon_align_center, 24)

@@ -66,11 +66,14 @@ class RouteManager(QObject):
         '''
         navigation = Navigation(name=None, path=None)
         match = False
+        # 0).匹配路由
         for route in self.__routes:
             _route_name = route_name
+            # 0.1).如果是根路由匹配redirect
             if route_name == route['name'] and route['redirect'] != None:
                 _route_name = route['redirect']['name']
             route_children = route['children']
+            # 0.2).匹配子路由
             for r in route_children:
                 if r['name'] == _route_name:
                     match = True

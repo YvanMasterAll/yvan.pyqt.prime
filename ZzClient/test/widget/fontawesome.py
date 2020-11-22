@@ -26,7 +26,7 @@ class Window(QMainWindow):
         super(Window, self).__init__()
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-        font_id = QFontDatabase.addApplicationFont(os.path.join(BASE_DIR, "../../resource/font/fontawesome-webfont.ttf"))
+        font_id = QFontDatabase.addApplicationFont(os.path.join(BASE_DIR, "../../resources/font/fontawesome-webfont.ttf"))
         if font_id is not -1:
             fontName = QFontDatabase.applicationFontFamilies(font_id)[0]
             self.font = QFont(fontName, 32)

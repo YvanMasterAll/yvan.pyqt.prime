@@ -15,10 +15,11 @@ class Bloc_Home(BaseBloc):
         pass
 
     def set_signal(self):
-        '''初始化信号槽'''
-        self.router.on_navigation_changed.connect(self.on_navigation_changed)
+        # 导航变更事件
+        self.router.on_navigation_changed.connect(self.__on_navigation_changed)
 
-    def on_navigation_changed(self, navigation: Navigation):
+    def __on_navigation_changed(self, navigation: Navigation):
+        # 根据导航显示指定页面
         self.pager.show_page(navigation)
 
 class Bloc_Navbar(BaseBloc, QObject):
@@ -26,6 +27,7 @@ class Bloc_Navbar(BaseBloc, QObject):
         super(Bloc_Navbar, self).__init__(*args, **kwargs)
 
     def set_signal(self):
+        # 模块初始化事件
         self.router.on_module_loaded.connect(self.on_module_loaded)
 
 class Bloc_SideBar(BaseBloc, QObject):
@@ -34,11 +36,13 @@ class Bloc_SideBar(BaseBloc, QObject):
         super(Bloc_SideBar, self).__init__(*args, **kwargs)
 
     def set_signal(self):
-        self.router.on_navigation_changed.connect(self._on_navigation_changed)
+        # 导航变更事件
+        self.router.on_navigation_changed.connect(self.__on_navigation_changed)
 
-    def _on_navigation_changed(self, navigation: Navigation):
-        '''导航变更事件'''
+    def __on_navigation_changed(self, navigation: Navigation):
+        # 1).获取要显示的菜单
         menu = self.router.get_current_menu(navigation)
+        # 2).判断重复点击
         reload = True
         if menu == self.menu:
             reload = False

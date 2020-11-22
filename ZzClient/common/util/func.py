@@ -1,5 +1,8 @@
+import datetime
 import traceback
 
+from PyQt5.QtCore import QRect, Qt
+from PyQt5.QtGui import QFontMetrics, QPainter
 from PyQt5.QtWidgets import QWidget, QLayoutItem, QLayout
 
 from .logger import logger_err
@@ -90,3 +93,44 @@ def clear_layout(layout:QLayout):
             clear_layout(l)
             l.setParent(None)
         item = layout.takeAt(0)
+
+'''
+计算文本尺寸
+'''
+def calculate_text_width(font, text):
+    fm = QFontMetrics(font)
+    return fm.width(text)
+def calculate_text_height(font):
+    fm = QFontMetrics(font)
+    return fm.height()
+def calculate_text_rect(text, font=None, painter=None, x=0, y=0, flag=Qt.TextSingleLine):
+    if not painter and not font:
+        return
+    if painter:
+        fm = QFontMetrics(painter.font())
+        rect = fm.boundingRect(QRect(x, y, 0, 0), flag, text)
+        return rect
+    if font:
+        fm = QFontMetrics(font)
+        rect = fm.boundingRect(QRect(x, y, 0, 0), flag, text)
+        return rect
+
+'''
+计算居中位置
+'''
+def calculate_middle_rect(prect: QRect, width, height, x=None, y=None):
+    _w = prect.width()
+    _h = prect.height()
+    _x = prect.x()
+    _y = prect.y()
+    if x and y:
+        return QRect(x + _x, y + _y, width, height)
+    return QRect(_x + (_w - width)/2, _y + (_h - height)/2, width, height)
+
+'''
+日期处理
+'''
+def toDateStr(_datetime=None):
+    if _datetime:
+        return _datetime.strftime("%Y-%m-%d %H:%M:%S")
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

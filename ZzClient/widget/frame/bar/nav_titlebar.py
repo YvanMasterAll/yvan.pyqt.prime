@@ -13,12 +13,11 @@ from widget.view import BaseView
 '''
 
 class NavTitleBar(BaseView):
-
     _radius     = 24
     _padding    = 4
     _move_pos   = None
     _height     = 90
-    _logo_size  = 80
+    _logo_size  = 50
 
     def __init__(self, *args, **kwargs):
         super(NavTitleBar, self).__init__(*args, **kwargs)
@@ -37,6 +36,10 @@ class NavTitleBar(BaseView):
         self.logo.setObjectName('Logo')
         self.logo.setFixedWidth(self._logo_size)
         self.logo.setFixedHeight(self._logo_size)
+        self.logo2 = QWidget(self)
+        self.logo2.setObjectName('Logo')
+        self.logo2.setFixedWidth(self._logo_size)
+        self.logo2.setFixedHeight(self._logo_size)
         # 内容
         self.content = QWidget()
         self.content.setObjectName("Content")
@@ -88,11 +91,13 @@ class NavTitleBar(BaseView):
         layout5 = QVBoxLayout()
         layout5.setSpacing(0)
         layout5.setContentsMargins(0, 0, 0, 0)
-        header_layout = QVBoxLayout()
+        header_layout = QHBoxLayout()
 
         self.header.setLayout(header_layout)
-        header_layout.setContentsMargins((self.config.sidebar_width - self._logo_size)/2, 0, 0, 0)
+        header_layout.setContentsMargins(40, 0, 54, 0)
+        header_layout.setSpacing(0)
         header_layout.addWidget(self.logo)
+        header_layout.addWidget(self.logo2)
         layout1.addWidget(self.header)
         layout.addLayout(layout1)
         layout2.addWidget(self.navbar)

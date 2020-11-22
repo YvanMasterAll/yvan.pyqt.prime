@@ -17,8 +17,9 @@ from common.loader.resource import ResourceLoader
 - 全局Loading
 - 表单 + 查询
 - 列表 + 分页
+- 列表 + 刷新
 - 模态层
-- Toast + Popmenu + Dropmenu
+- Toast + Popmenu + Dropmenu + 通知
 - Drawer
 - 树结构
 - Tabbar
@@ -45,7 +46,7 @@ def start():
         # app.setFont(QFont('Roboto'))
         # 设置雅黑字体
         # fontDB = QFontDatabase()
-        # fontDB.addApplicationFont('../resource/font/Microsoft-YaHei.ttf')
+        # fontDB.addApplicationFont('../resources/font/Microsoft-YaHei.ttf')
         # app.setFont(QFont('Microsoft YaHei'))
         # 图标字体
         ResourceLoader.load_icon_font()
@@ -53,6 +54,7 @@ def start():
         ResourceLoader.load_modules()
         # 创建窗体
         window = HomePage()
+        window.resize(1024 ,768)
         # 样式注入器
         ConnectStyleSheetInspector(main_window=window,
                                    shortcut=QKeySequence(Qt.Key_Tab))

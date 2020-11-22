@@ -444,3 +444,21 @@ KeyError: 'children'
     if self.menu['children'] == None:
 KeyError: 'children'
 
+2020-11-21 21:36:37,169 - func.py[line:18] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 73, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 42, in start
+    Theme.load()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/config/theme.py", line 56, in load
+    with open(COMMON_STYLE) as stylesheet:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/resource/qss/common.qss'
+
+2020-11-21 21:37:22,244 - func.py[line:18] - ERROR: Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 73, in <module>
+    start()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/__main__.py", line 42, in start
+    Theme.load()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/config/theme.py", line 56, in load
+    with open(COMMON_STYLE) as stylesheet:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/resource/qss/common.qss'
+

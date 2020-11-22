@@ -1,0 +1,339 @@
+/*
+ * Color:
+
+    background_light        #333842
+    background              #282C34
+    background_deep         #21252B
+    text                    #FFFEFE
+    sub_text                #CDCDCD
+*/
+
+/*
+ * 通用样式
+ */
+
+QFrame {
+    background: #21252B;
+    font: "Microsoft YaHei";
+}
+
+QWidget {
+    background: #21252B;
+}
+
+QLabel {
+    background-color: transparent;
+    color: #FFFEFE;
+    font-size: 14px;
+}
+
+/*
+ * 窗口圆角
+ */
+
+#SideBar {
+    border-bottom-left-radius: 5px;
+    background-color: red;
+}
+
+#Navigation {
+    border-bottom-left-radius: 5px;
+}
+
+#Pager {
+    border-bottom-right-radius: 5px;
+}
+
+#Pager > QFrame {
+    border-bottom-right-radius: 5px;
+}
+
+/*
+ * 按钮样式
+ */
+
+/* Button_Primary */
+QPushButton[type="0"] {
+    background-color: #2354B3;
+    padding: 4px 0;
+}
+
+/* Button_Primary_Outline */
+QPushButton[type="1"] {
+    border-color: #007AFF;
+    background-color: transparent;
+}
+QPushButton[type="1"]:hover {
+    background-color: transparent;
+    /*color: #007AFF;*/
+}
+
+/* Button_Warning */
+QPushButton[type="2"] {
+    background-color: #F24958;
+}
+
+/* Button_Warning_Outline */
+QPushButton[type="3"] {
+    background-color: transparent;
+    border-color: #F24958;
+}
+QPushButton[type="3"]:hover {
+    background-color: transparent;
+    /*color: #F24958;*/
+}
+
+/*
+ * 标题栏
+ */
+
+#TitleBar {
+    background-color: #333842;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top: 1px solid qlineargradient(x1:0,y1:0,x2:0,y2:1,stop:0 #888,stop:0.4 #777,stop:0.7 #666,stop:1 #555);
+}
+
+#TitleBar > QPushButton, #TitleBar > #Content > QPushButton {
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    min-width: 24px;
+}
+
+#TitleBar_buttonMinimum {
+    padding-bottom: 5px;
+}
+
+#TitleBar_buttonClose {
+    padding-top: 3px;
+}
+
+#TitleBar_labelTitle {
+    padding-top: 4px;
+}
+
+/*
+ * 顶部导航兰
+ */
+
+NavBar {
+    background-color: #333842;
+}
+
+NavBar > NavButton {
+    background-color: #333842;
+    border-radius: 8px;
+    border: none;
+}
+
+NavBar > NavButton:hover {
+    border: 1px solid #2354B3;
+    border-radius: 4px;
+}
+
+NavBar > NavButton:checked {
+    background-color: #21252B;
+    border-radius: 4px;
+    border: none;
+}
+
+NavBar > Separator {
+    background-color: #333842;
+}
+
+NavTitleBar #Content {
+    background-color: #333842;
+    /*border-bottom: 2px solid qlineargradient(x1:0,y1:1,x2:0,y2:0,stop:0 #4B5261, stop: 0.5 #282C34, stop:1 #21252B);*/
+}
+
+NavTitleBar #Header {
+    background-color: #333842;
+    /*border-right: 2px solid qlineargradient(x1:1,y1:0,x2:0,y2:0,stop:0 #4B5261, stop: 0.5 #333842, stop:1 #21252B);*/
+    border-right: 1px solid #333842;
+    border-bottom: 2px solid qlineargradient(x1:0,y1:1,x2:0,y2:0,stop:0 #4B5261, stop: 0.5 #282C34, stop:1 #21252B);
+}
+
+NavTitleBar #Logo {
+    background-color: #333842;
+    border-image: url(:icon/logo.png);
+    background-color: transparent;
+}
+
+NavTitleBar NavBar > NavButton:hover {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    background-color: #282C34;
+}
+
+NavTitleBar NavBar > NavButton:pressed {
+    border: none;
+}
+
+NavTitleBar NavBar > NavButton:pressed:hover {
+    border: none;
+}
+
+NavTitleBar NavBar > NavButton:checked:hover {
+    background-color: #21252B;
+}
+
+NavTitleBar NavBar > NavButton:checked {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/*
+ * 侧边栏
+ */
+
+SideBar {
+    background-color: #333842;
+    border-right: 2px solid qlineargradient(x1:1,y1:0,x2:0,y2:0,stop:0 #333842, stop: 0.5 #282C34, stop:1 #21252B);
+    border-bottom-left-radius: 5px;
+}
+
+SideBar #MenuButton_Empty {
+    border-radius: 4px;
+    background-color: #282C34;
+    border: none;
+}
+
+SideBar #MenuButton_Empty:hover {
+    border-radius: 4px;
+    background-color: #21252B;
+    border: none;
+}
+
+/*
+ * 分页器
+ */
+
+#Pager {
+    border: none;
+}
+
+CPaginationBar, _CPaginationJumpBar {
+    background-color: transparent;
+}
+
+CPaginationBar QLabel {
+    font-size: 12px;
+}
+
+CPaginationBar > QPushButton {
+    border: none;
+    qproperty-minimumSize: 32px 24px;
+    qproperty-maximumSize: 32px 24px;
+}
+
+CPaginationBar > QPushButton:focus, CPaginationBar > QPushButton:checked {
+    border: none;
+}
+
+CPaginationBar > QPushButton:hover {
+    color: #457AE5;
+}
+
+CPaginationBar > QPushButton:disabled {
+    color: #457AE5;
+}
+
+#CPaginationBar_buttonPrevious, #CPaginationBar_buttonNext {
+    background-color: transparent;
+    border: none;
+}
+
+#CPaginationBar_buttonPrevious:disabled, #CPaginationBar_buttonNext:disabled { }
+
+#CPaginationBar_labelInfos { }
+
+#CPaginationBar_editJump {
+    border-radius: 4px;
+    qproperty-minimumSize: 42px 24px;
+    qproperty-maximumSize: 42px 24px;
+}
+
+FlatTabWidget #SeparatorLine {
+    background-color: #FFFEFE;
+}
+
+/*
+ * 设备列表
+ */
+
+DeviceList GridLayout, DeviceList GridLayout #Content {
+    background-color: #212528;
+}
+
+/*
+ * 列表
+ */
+
+LoadMore {
+    font-size: 12px;
+}
+
+/* 
+ * 设备抽屉
+ */
+
+DeviceDrawer {
+    background-color: #212528;
+    color: #AFAFAF;
+}
+
+DeviceDrawer #Icon_Header {
+    min-width: 40px;
+    min-height: 40px;
+    border-image: url(:icon/device_list_current.png)
+}
+
+DeviceDrawer #Label_Title {
+    font-size: 12px;
+}
+
+DeviceDrawer #Btn_Edit, DeviceDrawer #Btn_Del {
+    qproperty-iconSize: 20px 12px;
+    padding: 4px 0;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+DeviceDrawer #Btn_Menu {
+    margin-left: 6px;
+}
+
+DeviceDrawer QLabel[type="100"] {
+    font-size: 11px;
+    color: #CDCDCD;
+}
+
+DeviceDrawer QLabel[type="101"] {
+    font-size: 12px;
+}
+
+DeviceDrawer TabPage2 {
+    background-color: #333842;
+}
+
+DeviceDrawer TabPage2 QLabel, DeviceDrawer TabPage2 QRadioButton {
+    font-size: 12px;
+}
+
+DeviceDrawer QScrollArea {
+    padding: 0;
+    border: none;
+}
+
+DeviceDrawer BaseListView {
+    min-height: 200px;
+}
+
+
+
+
+
+
+

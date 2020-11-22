@@ -25,10 +25,10 @@ class Config:
     '''
     属性项
     '''
-    sidebar_width    = 170          # 侧边栏宽度
-    window_zoom_critical   = 5      # 窗口大小调整边界
-    window_shadow_width = 5         # 窗口阴影宽度
-    qt_version      = tuple(int(v) for v in qtpy.QT_VERSION.split('.')) # Qt版本
+    sidebar_width           = 170       # 侧边栏宽度
+    window_zoom_critical    = 5         # 窗口大小调整边界
+    window_shadow_width     = 5         # 窗口阴影宽度
+    qt_version              = tuple(int(v) for v in qtpy.QT_VERSION.split('.')) # Qt版本
 
     @property
     def root_path(self) -> str:
@@ -53,7 +53,7 @@ class Config:
     @property
     def resource_path(self):
         '''资源文件夹'''
-        return self.link(self.root_path, "resource", not_exists_create=True)
+        return self.link(self.root_path, "resources", not_exists_create=True)
 
     @property
     def img_path(self):

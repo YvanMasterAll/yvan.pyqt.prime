@@ -11,7 +11,6 @@ from widget.view import BaseView
 '''
 
 class TitleBar(BaseView):
-
     _radius     = 24
     _padding    = 8
     _move_pos   = None

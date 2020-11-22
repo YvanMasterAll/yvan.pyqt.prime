@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+<file alias="icon/window_maximize.png">../../../img/light/icon/window_maximize.png</file>
+<file alias="font/.DS_Store">../../../font/.DS_Store</file>
+<file alias="font/fontawesome-webfont.ttf">../../../font/fontawesome-webfont.ttf</file>
+</qresource>
+</RCC>

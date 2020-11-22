@@ -38,21 +38,21 @@ class BaseView(QWidget):
     '''
     fontawesome = FontAwesome()
 
-    def set_style(self, name):
+    def set_style(self):
         '''
         设置样式
         https://stackoverflow.com/questions/31178695/qt-stylesheet-not-working
         '''
         self.setAttribute(QtCore.Qt.WA_StyledBackground)
-        with open(Config().qss_path + '/' + name + '.qss', 'r', encoding='utf-8') as f:
-            self.setStyleSheet(f.read())
+        if hasattr(self, 'style_name'):
+            with open(Config().qss_path + '/' + self.style_name + '.qss', 'r', encoding='utf-8') as f:
+                self.setStyleSheet(f.read())
 
     def procedure(self):
         '''
         初始化流程，set_ui > place > configure > set_signal
         '''
-        if hasattr(self, 'style_name'):
-            self.set_style(self.style_name)
+        self.set_style()
         if hasattr(self, 'set_ui'):
             self.set_ui()
         if hasattr(self, 'place'):

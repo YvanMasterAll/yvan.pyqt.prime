@@ -1,4 +1,7 @@
 
+'''
+数据块基类
+'''
 
 class BaseBloc:
 

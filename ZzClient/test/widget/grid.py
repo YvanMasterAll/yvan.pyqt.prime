@@ -3,7 +3,7 @@
 # from PyQt5.QtGui import QPixmap, QColor, QFontDatabase, QFont, QBrush, QIcon, QLinearGradient, QGradient
 # from PyQt5.QtWidgets import QVBoxLayout, QWidget, QApplication, QPushButton, QHBoxLayout, QSpacerItem
 # from qtpy import QtCore, QtWidgets
-# import resource.qss.theme.dark.style_rc
+# import resources.qss.theme.dark.style_rc
 # from config.theme import Theme
 # from view.home.sidebar import SideBar
 # from widget.activity.layout.grid_layout import GridLayout
@@ -56,7 +56,7 @@ from PyQt5.QtCore import QSize, Qt, QObject, QPoint, QTimer
 from PyQt5.QtGui import QPixmap, QColor, QFontDatabase, QFont, QBrush, QIcon, QLinearGradient, QGradient
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QApplication, QPushButton, QHBoxLayout, QSpacerItem
 from qtpy import QtCore, QtWidgets
-import resource.qss.theme.dark.style_rc
+import resources.qss.theme.dark.style_rc
 from config.theme import Theme
 from view.home.sidebar import SideBar
 from widget.activity.layout.grid_layout import GridLayout
@@ -66,7 +66,10 @@ from widget.view import BaseView
 
 Style = '''
 Window {
-    background-color: #282C34;   
+    background-color: #212528;   
+}
+GridLayout, GridLayout #Content {
+    background-color: #212528;   
 }
 '''
 
@@ -81,12 +84,12 @@ class Window(QWidget):
         layout.addWidget(grid)
         cards = []
         for i in range(2):
-            icon= QPixmap(':icon/logo.png')
+            icon= QPixmap(':icon/device_list_current.png')
             sn = '007'
             state = State.on
             active = '2020-11-15'
-            CardModel(icon, sn, state, active)
-            cardModel = CardModel(icon, sn, state, active)
+            name = 'MM-370C'
+            cardModel = CardModel(icon, sn, name, state, active)
             card = DeviceCard(grid.center_widget, model=cardModel)
             cards.append(card)
         grid.fixed_width = DeviceCard.fixed_width
@@ -97,6 +100,7 @@ class Window(QWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyleSheet(Style)
+    Theme.load()
     # fontDB = QFontDatabase()
     # font_id = fontDB.addApplicationFont(':font/Microsoft-YaHei.ttf')
     # fontName = QFontDatabase.applicationFontFamilies(font_id)[0]

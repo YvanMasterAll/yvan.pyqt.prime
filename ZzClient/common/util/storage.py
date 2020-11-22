@@ -63,14 +63,23 @@ class LocalStorage:
 
     @staticmethod
     def themeGet():
+        '''
+        获取主题
+        '''
         return LocalStorage.get('App', 'theme', 'dark')
 
     @staticmethod
     def themeSet(value):
+        '''
+        设置主题
+        '''
         return LocalStorage.set('App', 'theme', value)
 
     @staticmethod
     def themeAllGet():
+        '''
+        获取所有主题
+        '''
         return LocalStorage.get('App', 'all_theme', '')
 
 

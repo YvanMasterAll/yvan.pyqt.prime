@@ -33,21 +33,20 @@ class Theme:
 
     @classmethod
     def load(cls):
-        # 测试图片资源导入
         app = QApplication.instance()
         theme = LocalStorage.themeGet()
         skin_qss = '{qss_path}/theme/{theme}/skin.qss'.format(qss_path=Config().qss_path, theme=theme)
         style_qss = '{qss_path}/theme/{theme}/style.qss'.format(qss_path=Config().qss_path, theme=theme)
         qss_string = ''
         # 0).资源文件
-        skin_rc = importlib.import_module('ZzClient.resource.qss.theme.{theme}.skin_rc'.format(theme=theme))
-        style_rc = importlib.import_module('ZzClient.resource.qss.theme.{theme}.style_rc'.format(theme=theme))
+        skin_rc = importlib.import_module('resources.qss.theme.{theme}.skin_rc'.format(theme=theme))
+        style_rc = importlib.import_module('resources.qss.theme.{theme}.style_rc'.format(theme=theme))
         skin_rc.qInitResources()
         style_rc.qInitResources()
         # 1).自带皮肤
         app.setStyle('Fusion')
         # 2).调色板
-        palette_module = importlib.import_module('ZzClient.resource.qss.theme.{theme}.palette'.format(theme=theme))
+        palette_module = importlib.import_module('resources.qss.theme.{theme}.palette'.format(theme=theme))
         cls.palette = getattr(palette_module, 'Palette')
         cls.palette.render(app)
         # 3).通用样式表
@@ -73,8 +72,8 @@ class Theme:
             return
         # 0).卸载资源
         current_theme = LocalStorage.themeGet()
-        skin_rc = importlib.import_module('ZzClient.resource.qss.theme.{theme}.skin_rc'.format(theme=current_theme))
-        style_rc = importlib.import_module('ZzClient.resource.qss.theme.{theme}.style_rc'.format(theme=current_theme))
+        skin_rc = importlib.import_module('resources.qss.theme.{theme}.skin_rc'.format(theme=current_theme))
+        style_rc = importlib.import_module('resources.qss.theme.{theme}.style_rc'.format(theme=current_theme))
         skin_rc.qCleanupResources()
         style_rc.qCleanupResources()
         # 1).改变主题
