@@ -112,7 +112,7 @@
 
 # import sys
 # from PyQt5.QtWidgets import QLabel, QApplication
-# from ZzClient.widget.view import BaseView
+# from widget.view import BaseView
 #
 # class DeviceList(BaseView):
 #     def __init__(self, *args, **kwargs):

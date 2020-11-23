@@ -39,6 +39,13 @@ class ResourceLoader:
     iconFontNames = {}
 
     '''
+    字体资源
+    '''
+    @property
+    def qt_font_yahei(self):
+        return Config().font_path + '/Microsoft-YaHei.ttf'
+
+    '''
     颜色资源
     '''
     @property

@@ -7,7 +7,7 @@ from common.util.func import handle_error
 from common.loader.inspector import ConnectStyleSheetInspector
 from config.const import Config
 from widget.application import QSingleApplication
-from ZzClient.view.home.index import HomePage
+from view.home.index import HomePage
 import cgitb
 import os
 from common.loader.resource import ResourceLoader
@@ -22,7 +22,7 @@ from common.loader.resource import ResourceLoader
 - Toast + Popmenu + Dropmenu + 通知
 - Drawer
 - 树结构
-- Tabbar
+- Tabbarf
 '''
 
 def start():
@@ -45,9 +45,9 @@ def start():
         # fontDB.addApplicationFont(':/font/Roboto-Regular.ttf')
         # app.setFont(QFont('Roboto'))
         # 设置雅黑字体
-        # fontDB = QFontDatabase()
-        # fontDB.addApplicationFont('../resources/font/Microsoft-YaHei.ttf')
-        # app.setFont(QFont('Microsoft YaHei'))
+        fontDB = QFontDatabase()
+        fontDB.addApplicationFont(ResourceLoader().qt_font_yahei)
+        app.setFont(QFont('Microsoft YaHei'))
         # 图标字体
         ResourceLoader.load_icon_font()
         # 加载模块

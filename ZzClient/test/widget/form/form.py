@@ -8,7 +8,7 @@ from gitdb.util import join, dirname
 from qtpy import QtCore, QtWidgets, uic
 import resources.qss.theme.dark.style_rc
 from config.theme import Theme
-from ZzClient.test.widget.form._form import Ui_Form
+from test.widget.form._form import Ui_Form
 from view.home.sidebar import SideBar
 from widget.frame.button.mrxy.mrxy_button import MrxyButton
 from widget.view import BaseView

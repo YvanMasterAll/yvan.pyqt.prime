@@ -56,7 +56,7 @@ class Theme:
         with open(skin_qss) as stylesheet:
             qss_string += stylesheet.read()
         # 5).界面样式表
-        with open(style_qss) as stylesheet:
+        with open(style_qss, encoding='utf-8') as stylesheet:
             qss_string += stylesheet.read()
         # 6).设置样式
         app.setStyleSheet(qss_string)
