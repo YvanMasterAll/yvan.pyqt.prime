@@ -7,11 +7,11 @@ from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import QWidget, QApplication
 from qtpy import QtWidgets, QtCore, QtGui
 from common.loader.resource import ResourceLoader
-from test.widget.separator import Separator
 from widget.frame.form.baselineedit import BaseLineEdit
 from widget.frame.list.base_list_view import BaseListView
 from widget.frame.list.delegate import ListDelegate
 from widget.frame.list.model import ListModel
+from widget.frame.separator.separator import Separator
 from widget.frame.tab.flat_tab import FlatTabWidget
 from widget.frame.table.base_table import BaseTableView
 from widget.frame.table.delegate import TableDelegate

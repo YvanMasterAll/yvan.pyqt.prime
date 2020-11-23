@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, \
     QLabel, QPushButton, QApplication, QVBoxLayout, QGraphicsBlurEffect, QGraphicsDropShadowEffect
 from qtpy import QtGui
 from config.const import Config
-from test.widget.separator import Separator
 from view.home.navbar import NavBar
 from widget.view import BaseView
 
