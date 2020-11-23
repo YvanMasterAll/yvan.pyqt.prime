@@ -369,7 +369,7 @@ class MrxyButton(QPushButton):
                 self.setMinimumSize(fm.horizontalAdvance(text)+self.fore_paddings.left+self.fore_paddings.right, fm.lineSpacing()+self.fore_paddings.top+self.fore_paddings.bottom)
             else:
                 font = QFont()
-                font.setPointSize(self.font_size)
+                font.setPixelSize(self.font_size)
                 fm = QFontMetrics(font)
                 self.setMinimumSize(fm.horizontalAdvance(text)+self.fore_paddings.left+self.fore_paddings.right, fm.lineSpacing()+self.fore_paddings.top+self.fore_paddings.bottom)
 
@@ -610,7 +610,7 @@ class MrxyButton(QPushButton):
         if not self.font_size: # 第一次设置字体大小，直接设置
             self.font_size = f
             self.font = QFont(self.font())
-            self.font.setPointSize(f)
+            self.font.setPixelSize(f)
             self.setFont(self.font)
             self.update()
         else: # 改变字体大小，使用字体缩放动画
@@ -627,7 +627,7 @@ class MrxyButton(QPushButton):
         # 修改字体大小时调整按钮的最小尺寸，避免文字显示不全
         if self.text_dynamic_size:
             font = QFont()
-            font.setPointSize(f)
+            font.setPixelSize(f)
             fms = QFontMetrics(font)
             self.setMinimumSize(fms.horizontalAdvance(self.text)+self.fore_paddings.left+self.fore_paddings.right, fms.lineSpacing()+self.fore_paddings.top+self.self.fore_paddings.bottom)
         if self.model != PaintModel.Text:
@@ -642,7 +642,7 @@ class MrxyButton(QPushButton):
         '''设置动画中的临时字体大小，用来作为字体动画的属性参数'''
         self.font_size = f
         font = self.font()
-        font.setPointSize(f)
+        font.setPixelSize(f)
         self.setFont(font)
         self.update()
 
@@ -740,7 +740,7 @@ class MrxyButton(QPushButton):
         if self.model == PaintModel.Text or self.model == PaintModel.IconText or self.model == PaintModel.PixmapText:
             font = self.font()
             if self.font_size > 0:
-                font.setPointSize(self.font_size)
+                font.setPixelSize(self.font_size)
             fm = QFontMetrics(font)
             self.setMinimumSize(
                 fm.horizontalAdvance(self.text)+self.fore_paddings.left+self.fore_paddings.right+addin,
@@ -1227,11 +1227,11 @@ class MrxyButton(QPushButton):
                 #     font = painter.font()
                 #     ps = font.pointSize()
                 #     ps = ps * self.show_ani_progress / 100
-                #     font.setPointSize(ps)
+                #     font.setPixelSize()(ps)
                 #     painter.setFont(font)
                 if self.font_size > 0:
                     font = painter.font()
-                    font.setPointSize(self.font_size)
+                    font.setPixelSize(self.font_size)
                     painter.setFont(font)
                 painter.drawText(rect, int(self.align), self.text)
             elif self.model == PaintModel.Icon: # 绘制图标
@@ -1254,7 +1254,7 @@ class MrxyButton(QPushButton):
                 rect.setWidth(rect.width() + sz + self.icon_text_padding)
                 if self.font_size > 0:
                     font = painter.font()
-                    font.setPointSize(self.font_size)
+                    font.setPixelSize(self.font_size)
                     painter.setFont(font)
                 painter.drawText(rect, Qt.AlignLeft | Qt.AlignVCenter, self.text)
 

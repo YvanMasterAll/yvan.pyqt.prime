@@ -126,7 +126,7 @@ class WaterFloatButton(MrxyButton):
             painter.setPen(color)
             if self.font_size > 0:
                 font = painter.font()
-                font.setPointSize(self.font_size)
+                font.setPixelSize(self.font_size)
                 painter.setFont(font)
             painter.drawText(rect, Qt.AlignCenter, self.text)
 

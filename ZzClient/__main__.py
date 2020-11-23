@@ -47,7 +47,10 @@ def start():
         # 设置雅黑字体
         fontDB = QFontDatabase()
         fontDB.addApplicationFont(ResourceLoader().qt_font_yahei)
-        app.setFont(QFont('Microsoft YaHei'))
+        font = QFont('Microsoft YaHei')
+        font.setPixelSize(12)
+        font.setWeight(50)
+        app.setFont(font)
         # 图标字体
         ResourceLoader.load_icon_font()
         # 加载模块

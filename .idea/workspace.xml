@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc0e0c64-6b40-4a20-8394-a2eca9ec7235" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ZzClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ZzClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ZzClient/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/__main__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ZzClient/common/loader/resource.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/common/loader/resource.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZzClient/config/theme.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/config/theme.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZzClient/test/widget/drawer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/test/widget/drawer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZzClient/test/widget/form/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/test/widget/form/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ZzClient/test/widget/hello.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/test/widget/hello.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZzClient/widget/frame/button/mrxy/mrxy_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/widget/frame/button/mrxy/mrxy_button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZzClient/widget/frame/button/mrxy/waterfloat_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/ZzClient/widget/frame/button/mrxy/waterfloat_button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZzClient/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+            <state relative-caret-position="386">
+              <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -60,11 +55,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/list/delegate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/card/device_card.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="102" column="38" lean-forward="true" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="222" column="1" lean-forward="true" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZzClient/config/theme.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="60" column="17" lean-forward="true" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+            <state relative-caret-position="394">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -75,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZzClient/common/loader/resource.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+            <state relative-caret-position="374">
+              <caret line="193" column="30" lean-forward="true" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -85,10 +110,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ZzClient/config/const.py">
+        <entry file="file://$PROJECT_DIR$/ZzClient/view/device/device_drawer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="187">
+              <caret line="141" column="18" selection-start-line="141" selection-start-column="6" selection-end-line="141" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,36 +132,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>close</find>
-      <find>maximu</find>
-      <find>slidein</find>
-      <find>notif</find>
-      <find>icon</find>
-      <find>api(</find>
-      <find>on_module_loaded</find>
-      <find>check</find>
-      <find>ZoomCard</find>
-      <find>ZzClient.resource</find>
-      <find>resource.</find>
-      <find>resource/</find>
-      <find>load_icon</find>
-      <find>:font</find>
-      <find>font</find>
-      <find>resour</find>
-      <find>import resources.</find>
-      <find>added_files</find>
-      <find>'view'</find>
-      <find>importlib.import</find>
-      <find>from config.route import routes</find>
-      <find>collect_</find>
-      <find>'Logo'</find>
-      <find>logo</find>
-      <find>from ZzClient</find>
-      <find>from zzclient</find>
-      <find>font:</find>
-      <find>app.setfont</find>
-      <find>microsoft yahei</find>
-      <find>qt_font</find>
+      <find>101</find>
+      <find>pagination</find>
+      <find>cpa</find>
+      <find>type=&quot;0</find>
+      <find>编辑</find>
+      <find>Btn_Edit</find>
+      <find>输入查询</find>
+      <find>font-size: 12</find>
+      <find>CPaginationBar</find>
+      <find>sets</find>
+      <find>setstyle</find>
+      <find>color_tex</find>
+      <find>qt_font_</find>
+      <find>font-size</find>
+      <find>14px</find>
+      <find>size</find>
+      <find>font-si</find>
+      <find>setpointsize</find>
+      <find>setpixelsize</find>
+      <find>setpix</find>
+      <find>BaseLineEdit</find>
+      <find>input_search</find>
+      <find>TabPage1</find>
+      <find>FlatTabWidget</find>
+      <find>tabpage1</find>
+      <find>app.set</find>
+      <find>qt_font_text_xs</find>
+      <find>12px</find>
+      <find>drawtext</find>
+      <find>title_font</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/ZzClient/test/widget/button</dir>
@@ -147,11 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ZzClient/view/home/sidebar.py" />
-        <option value="$PROJECT_DIR$/ZzClient/bloc/home.py" />
-        <option value="$PROJECT_DIR$/ZzClient/view/home/index.py" />
-        <option value="$PROJECT_DIR$/ZzClient/view/home/navbar.py" />
-        <option value="$PROJECT_DIR$/ZzClient/view/device/list.py" />
         <option value="$PROJECT_DIR$/ZzClient/view/test2page.py" />
         <option value="$PROJECT_DIR$/ZzClient/common/util/route.py" />
         <option value="$PROJECT_DIR$/ZzClient/common/util/worker.py" />
@@ -188,16 +211,21 @@
         <option value="$APPLICATION_CONFIG_DIR$/idea.properties" />
         <option value="$PROJECT_DIR$/ZzClient/test/test_clazz.py" />
         <option value="$PROJECT_DIR$/ZzClient/package.spec" />
-        <option value="$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss" />
         <option value="$PROJECT_DIR$/ZzClient/widget/frame/bar/nav_titlebar.py" />
         <option value="$APPLICATION_CONFIG_DIR$/pycharm.vmoptions" />
         <option value="$PROJECT_DIR$/ZzClient/test/widget/drawer.py" />
         <option value="$PROJECT_DIR$/ZzClient/test/widget/hello.py" />
         <option value="$PROJECT_DIR$/ZzClient/test/widget/form/form.py" />
         <option value="$PROJECT_DIR$/ZzClient/config/const.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/ZzClient/widget/frame/button/mrxy/waterfloat_button.py" />
+        <option value="$PROJECT_DIR$/ZzClient/widget/frame/button/mrxy/mrxy_button.py" />
+        <option value="$PROJECT_DIR$/ZzClient/test/widget/table/pagination.py" />
+        <option value="$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/skin.qss" />
+        <option value="$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss" />
+        <option value="$PROJECT_DIR$/ZzClient/config/theme.py" />
         <option value="$PROJECT_DIR$/ZzClient/common/loader/resource.py" />
         <option value="$PROJECT_DIR$/ZzClient/__main__.py" />
-        <option value="$PROJECT_DIR$/ZzClient/config/theme.py" />
       </list>
     </option>
   </component>
@@ -230,7 +258,14 @@
               <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
               <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
               <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="loader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
@@ -242,8 +277,35 @@
               <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
               <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
               <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="font" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="frame" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="frame" type="462c0819:PsiDirectoryNode" />
+              <item name="card" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ZzClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="ZzClient" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -457,9 +519,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.__main__" />
+        <item itemvalue="Python.pagination" />
         <item itemvalue="Python.generator" />
         <item itemvalue="Python tests.pytest in test_clazz.py" />
-        <item itemvalue="Python.pagination" />
         <item itemvalue="Python tests.pytest in titlebar.py" />
       </list>
     </recent_temporary>
@@ -550,7 +612,7 @@
       <workItem from="1606020268180" duration="9817000" />
       <workItem from="1606032050836" duration="3202000" />
       <workItem from="1606050448733" duration="275000" />
-      <workItem from="1606089166132" duration="666000" />
+      <workItem from="1606089166132" duration="6207000" />
     </task>
     <servers />
   </component>
@@ -581,7 +643,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="762583000" />
+    <option name="totallyTimeSpent" value="768124000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -695,7 +757,7 @@
     <SUITE FILE_PATH="coverage/ZzClient$rename.coverage" NAME="rename Coverage Results" MODIFIED="1603371531104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/tests" />
     <SUITE FILE_PATH="coverage/ZzClient$example.coverage" NAME="example Coverage Results" MODIFIED="1605670207105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/QDarkStyleSheet/example" />
     <SUITE FILE_PATH="coverage/ZzClient$pytest_in_test_tmp_py.coverage" NAME="pytest in test_tmp.py Coverage Results" MODIFIED="1603370357997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/tests" />
-    <SUITE FILE_PATH="coverage/ZzClient$pagination.coverage" NAME="pagination Coverage Results" MODIFIED="1605932050933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget/table" />
+    <SUITE FILE_PATH="coverage/ZzClient$pagination.coverage" NAME="pagination Coverage Results" MODIFIED="1606112777464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget/table" />
     <SUITE FILE_PATH="coverage/ZzClient$seperator.coverage" NAME="seperator Coverage Results" MODIFIED="1604475324800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget" />
     <SUITE FILE_PATH="coverage/ZzClient$mrxy_button.coverage" NAME="mrxy_button Coverage Results" MODIFIED="1605928843416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget/button" />
     <SUITE FILE_PATH="coverage/ZzClient$scss.coverage" NAME="scss Coverage Results" MODIFIED="1604565577721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/resource" />
@@ -710,7 +772,7 @@
     <SUITE FILE_PATH="coverage/ZzClient$loading.coverage" NAME="loading Coverage Results" MODIFIED="1605929254727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget" />
     <SUITE FILE_PATH="coverage/ZzClient$test_loading.coverage" NAME="test_loading Coverage Results" MODIFIED="1603370520429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/tests" />
     <SUITE FILE_PATH="coverage/ZzClient$111.coverage" NAME="111 Coverage Results" MODIFIED="1603370657469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient" />
-    <SUITE FILE_PATH="coverage/ZzClient$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1606107472430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient" />
+    <SUITE FILE_PATH="coverage/ZzClient$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1606115077415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient" />
     <SUITE FILE_PATH="coverage/ZzClient$sidebar.coverage" NAME="sidebar Coverage Results" MODIFIED="1605929300499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget" />
     <SUITE FILE_PATH="coverage/ZzClient$baselineedit.coverage" NAME="baselineedit Coverage Results" MODIFIED="1605928932551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget/form" />
     <SUITE FILE_PATH="coverage/ZzClient$generator.coverage" NAME="generator Coverage Results" MODIFIED="1606030113621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/resources" />
@@ -724,72 +786,6 @@
     <SUITE FILE_PATH="coverage/ZzClient$drawer.coverage" NAME="drawer Coverage Results" MODIFIED="1605929228379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ZzClient/test/widget" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/tab/flat_tab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/tab/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/table/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/table/base_table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/table/delegate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/table/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/table/pagination.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/tag/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/tag/tag.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/uipy/frame/form/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/uipy/frame/form/device_config.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZzClient/widget/application.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -848,9 +844,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/skin_rc.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/hello.py" />
@@ -951,20 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/bar/nav_titlebar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="92" column="46" lean-forward="true" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="159" column="34" selection-start-line="159" selection-start-column="34" selection-end-line="159" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZzClient/resources/generator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -989,10 +968,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/bar/nav_titlebar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/view/home/navbar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="66" column="53" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/skin_rc.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/test/widget/table/test.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/test/widget/table/pagination.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/table/pagination.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/test/widget/table/table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1603">
+          <caret line="178" column="25" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/skin.qss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="711" column="8" selection-start-line="711" selection-start-column="4" selection-end-line="711" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/view/device/device_drawer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="141" column="18" selection-start-line="141" selection-start-column="6" selection-end-line="141" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/test/widget/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="90" column="1" lean-forward="true" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/form/baselineedit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/resources/qss/theme/dark/style.qss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="222" column="1" lean-forward="true" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/list/delegate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/widget/frame/card/device_card.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="102" column="38" lean-forward="true" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZzClient/config/theme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ZzClient/common/loader/resource.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+        <state relative-caret-position="374">
+          <caret line="193" column="30" lean-forward="true" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
@@ -1001,20 +1102,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ZzClient/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+        <state relative-caret-position="386">
+          <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ZzClient/config/theme.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="60" column="17" lean-forward="true" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -181,7 +181,7 @@ class ResourceLoader:
 
     # TODO: Microsoft YaHei
     @staticmethod
-    def make_font(size: int, weight: int = 2, family: str = "Microsoft Yahei") -> QtGui.QFont:
+    def make_font(size: int, weight: int = 50, family: str = "Microsoft Yahei") -> QtGui.QFont:
         '''
         创建一个字体，如此不必重复的
         实例化-设置-调用
@@ -192,7 +192,7 @@ class ResourceLoader:
         font = QtGui.QFont()
         font.setWeight(weight)
         font.setFamily(family)
-        font.setPointSize(size)
+        font.setPixelSize(size)
         font.setStyleStrategy(QFont.PreferAntialias)
         return font
 
