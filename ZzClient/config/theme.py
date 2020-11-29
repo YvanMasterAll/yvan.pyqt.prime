@@ -61,9 +61,9 @@ class Theme:
         # 6).设置样式
         app.setStyleSheet(qss_string)
         # 7).抗锯齿
-        font = app.font();
-        font.setStyleStrategy(QFont.PreferAntialias);
-        app.setFont(font);
+        font = app.font()
+        font.setStyleStrategy(QFont.PreferAntialias)
+        app.setFont(font)
 
     @classmethod
     def toggle(cls, theme):

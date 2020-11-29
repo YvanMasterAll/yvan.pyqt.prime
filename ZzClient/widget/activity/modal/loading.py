@@ -1,124 +1,82 @@
-from PyQt5.QtCore import Qt, QTimer, QPoint, QEvent, QRect
-from PyQt5.QtWidgets import QLabel, QWidget, QVBoxLayout, QDialog
+from PyQt5.QtCore import Qt, QTimer, QPoint, QEvent, QRect, pyqtSignal, QObject
+from PyQt5.QtWidgets import QLabel, QWidget, QVBoxLayout, QDialog, QMessageBox, QHBoxLayout
+from qasync import QtCore
 from qtpy.QtGui import QPalette, QPainter, QBrush, QPen, QColor, QHelpEvent
 import math
 import copy
 
-'''
-提示信息
-
-btn1 = QPushButton('鼠标悬停1', self, minimumHeight=38, toolTip='这是按钮1')
-ToolTip.bind(btn1)
-'''
-
-class ToolTip(QWidget):
-
-    _instance = None
-    TimeOut = 2000
-
-    @classmethod
-    def bind(cls, widget):
-        if not cls._instance:
-            cls._instance = cls()
-        widget.installEventFilter(cls._instance)
-
-    def __init__(self, *args, **kwargs):
-        super(ToolTip, self).__init__(*args, **kwargs)
-
-        self.setObjectName("ToolTip")
-        self.setWindowFlags(self.windowFlags() |
-                            Qt.ToolTip | Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground, True)
-        self.setVisible(False)
-        self.setStyleSheet("#ToolTip > QLabel { color: white; border-radius: 5px; padding: 10px; background-color: rgba(77, 77, 77, 180); }")
-        layout = QVBoxLayout(self, spacing=0)
-        layout.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self)
-        self.label.setAlignment(Qt.AlignCenter)
-        self.label.setContentsMargins(0, 0, 0, 0)
-        layout.addWidget(self.label)
-        # 定时隐藏
-        self._hideTimer = QTimer(self, timeout=self.hide)
-
-    def setText(self, text):
-        self.label.setText(text)
-
-    def eventFilter(self, widget, event):
-        if isinstance(event, QHelpEvent):
-            return True
-        t = event.type()
-        if t == QEvent.Enter:           # 鼠标进入
-            self.hide()
-            self._hideTimer.stop()
-            self.setText(widget.toolTip())
-            if widget.toolTip():
-                self.show()
-                # 自动隐藏
-                self._hideTimer.start(self.TimeOut)
-                pos = widget.mapToGlobal(QPoint(0, 0))
-                self.move(pos.x() + widget.width() + 30,
-                          pos.y() + int((widget.height() - self.height()) / 2))
-        elif t == QEvent.Leave:         # 鼠标离开
-            self._hideTimer.stop()
-            self.hide()
-
-        return super(ToolTip, self).eventFilter(widget, event)
+from common.loader.resource import ResourceLoader
 
 '''
-遮盖层
+加载模态层
+TODO: 当窗体移动时更新模态层坐标
 '''
 
 class Loading(QWidget):
+    _thresold = 10000
+    on_outer_close = pyqtSignal()
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, modal=False, **kwargs):
         super(Loading, self).__init__(*args, **kwargs)
+        # 是否是模态层，如果是将父窗口挂起
+        self.modal = modal
+        if modal:
+            self.setWindowFlags(Qt.FramelessWindowHint | Qt.Dialog)
+            self.setWindowModality(Qt.ApplicationModal)
 
-        self.w = 15
-        self.h = 15
-        self.dot_w = 12
-        self.dot_h = 12
-        self.timeout = 10
-        self.dot_count = 6
-        palette = QPalette(self.palette())
-        palette.setColor(palette.Background, Qt.transparent)
-        self.setPalette(palette)
+        # procedure
+        self.setObjectName('Loading')
+        self.setAttribute(QtCore.Qt.WA_StyledBackground)
         self.hide()
+        self.set_ui()
+        self.place()
 
-    def paintEvent(self, event):
-        painter = QPainter()
-        painter.begin(self)
-        painter.setRenderHint(QPainter.Antialiasing)
-        painter.fillRect(event.rect(), QBrush(QColor(255, 255, 255, 127)))
-        painter.setPen(QPen(Qt.NoPen))
+        # 计时器，超时关闭
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.hide)
+        self.timer.start(self._thresold)
 
-        for i in range(self.dot_count):
-            if math.floor(self.counter/(self.dot_count-1))%self.dot_count == i:
-                painter.setBrush(QBrush(QColor(127 + (self.counter%5)*32, 127, 127)))
+        # 关闭信号
+        self.on_outer_close.connect(self.hide)
+
+    def set_ui(self):
+        self.spinner = Spinner(self)
+        self.spinner.setMinimumTrailOpacity(15.0)
+        self.spinner.setTrailFadePercentage(70.0)
+        self.spinner.setNumberOfLines(8)
+        self.spinner.setLineLength(8)
+        self.spinner.setLineWidth(5)
+        self.spinner.setInnerRadius(8)
+        self.spinner.setRevolutionsPerSecond(1)
+        self.spinner.setColor(QColor(240, 240, 240))
+
+    def place(self):
+        pass
+
+    def show(self):
+        geometry = self.parent().geometry()
+        self.raise_()
+        if self.parent().isWindow():
+            if self.modal:
+                self.setGeometry(geometry)
             else:
-                painter.setBrush(QBrush(QColor(127, 127, 127)))
-            painter.drawEllipse(
-                self.width()/2 + self.w * math.cos(2*math.pi*i/self.dot_count) - self.dot_w/2,
-                self.height()/2 + self.h * math.sin(2*math.pi*i/self.dot_count) - self.dot_h/2,
-                self.dot_w, self.dot_h)
+                self.setGeometry(QRect(QPoint(), geometry.size()))
+        else:
+            # 如果显示的容器不是一个窗口，重新计算坐标
+            if self.modal:
+                self.setGeometry(QRect(self.parent().mapToGlobal(QPoint(geometry.x(), geometry.y())), geometry.size()))
+            else:
+                self.setGeometry(geometry)
+        self.spinner.start()
+        super(Loading, self).show()
 
-        painter.end()
-
-    def showEvent(self, event):
-        self.timer = self.startTimer(50)
-        self.counter = 0
-
-    def hideEvent(self, event):
-        self.killTimer(self.timer)
-
-    def timerEvent(self, event):
-        self.counter += 1
-        self.update()
-        if self.counter >= self.timeout*20:
-            self.killTimer(self.timer)
-            self.hide()
+    def hide(self):
+        if hasattr(self, 'spinner'):
+            self.spinner.stop()
+        super(Loading, self).hide()
 
 class Spinner(QWidget):
-    def __init__(self, centerOnParent=True, disableParentWhenSpinning=True, *args, **kwargs):
+    def __init__(self, *args, centerOnParent=True, disableParentWhenSpinning=True, **kwargs):
         super(Spinner, self).__init__(*args, **kwargs)
 
         self._centerOnParent = centerOnParent
@@ -141,8 +99,6 @@ class Spinner(QWidget):
         self.updateTimer()
         self.hide()
 
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setWindowModality(Qt.ApplicationModal)
         self.setAttribute(Qt.WA_TranslucentBackground)
 
     def stop(self):
@@ -172,8 +128,8 @@ class Spinner(QWidget):
 
     def updatePosition(self):
         if self.parent() != None and self._centerOnParent:
-            self.move(self.parent().pos().x() + self.parent().width()/2 - self.width()/2,
-                      self.parent().pos().y() + self.parent().height()/2 - self.height()/2)
+            self.move(self.parent().width()/2 - self.width()/2,
+                      self.parent().height()/2 - self.height()/2)
 
     def start(self):
         self.updatePosition()
@@ -269,3 +225,44 @@ class Spinner(QWidget):
     def setInnerRadius(self, radius):
         self._innerRadius = radius
         self.updateSize()
+
+'''
+文本加载对话框
+'''
+
+class TextLoading(QObject):
+    on_outer_close = pyqtSignal()
+
+    def __init__(self):
+        super(TextLoading, self).__init__()
+
+        self.on_outer_close.connect(self.hide)
+
+    def show(self, waiting_info: str = "加载中，请稍后"):
+        '''
+        等待对话框
+        '''
+        if not hasattr(self, 'dialog'):
+            self.dialog = QDialog(None, Qt.FramelessWindowHint)
+            self.dialog.setWindowFlags(Qt.Window | Qt.FramelessWindowHint | Qt.Tool |
+                   Qt.WindowSystemMenuHint | Qt.WindowMinimizeButtonHint |
+                   Qt.WindowMaximizeButtonHint)
+        self.dialog.resize(200, 40)
+        self.dialog.layout = QHBoxLayout(self.dialog)
+        self.dialog.label = QLabel(waiting_info)
+        self.dialog.label.setFont(ResourceLoader().qt_font_text_xs)
+        self.dialog.layout.addWidget(self.dialog.label, alignment=Qt.AlignCenter)
+        self.dialog.exec_()
+
+    def hide(self):
+        if hasattr(self, 'dialog'):
+            self.dialog.close()
+
+'''
+Toast
+'''
+
+# class Toast(QObject):
+#     @staticmethod
+#     def show():
+#         #

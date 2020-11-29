@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, QPoint, QPointF
+from PyQt5.QtCore import Qt, QPropertyAnimation, QEasingCurve, QPoint, QPointF, QRect
 from PyQt5.QtGui import QMouseEvent
 from PyQt5.QtWidgets import QWidget, QApplication
 
@@ -10,13 +10,18 @@ class Drawer(QWidget):
 
     LEFT, TOP, RIGHT, BOTTOM = range(4)
 
-    def __init__(self, *args, stretch=1 / 3, direction=0, widget=None, **kwargs):
+    def __init__(self, *args, stretch=1 / 3, direction=0, widget=None, popup=True, **kwargs):
         super(Drawer, self).__init__(*args, **kwargs)
-        self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.Popup | Qt.NoDropShadowWindowHint)
+        # 浮动弹出
+        self.popup = popup
+        if popup:
+            self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.Popup | Qt.NoDropShadowWindowHint)
+        else:
+            self.setWindowFlags(self.windowFlags() | Qt.FramelessWindowHint | Qt.NoDropShadowWindowHint)
         self.setAttribute(Qt.WA_StyledBackground, True)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         # 进入动画
-        self.animIn = QPropertyAnimation(self, duration=400, easingCurve=QEasingCurve.OutCubic)
+        self.animIn = QPropertyAnimation(self, duration=300, easingCurve=QEasingCurve.OutCubic)
         self.animIn.setPropertyName(b'pos')
         # 离开动画
         self.animOut = QPropertyAnimation(self, duration=400, finished=self.onAnimOutEnd, easingCurve=QEasingCurve.OutCubic)
@@ -25,7 +30,7 @@ class Drawer(QWidget):
         self.setStretch(stretch)        # 占比
         self.direction = direction      # 方向
         # 半透明背景
-        self.alphaWidget = QWidget(self, objectName='Drawer_alphaWidget', styleSheet='#Drawer_alphaWidget{background:rgba(55,55,55,100);}')
+        self.alphaWidget = QWidget(self, objectName='Drawer_alphaWidget', styleSheet='#Drawer_alphaWidget{background:rgba(0,0,0,50);}')
         self.alphaWidget.setAttribute(Qt.WA_TransparentForMouseEvents, True)
         self.setWidget(widget)          # 子控件
 
@@ -46,10 +51,16 @@ class Drawer(QWidget):
         if not parent or not self.widget:
             return
         # 设置Drawer大小和主窗口一致
-        self.setGeometry(parent.geometry())
+        if self.popup:
+            self.setGeometry(parent.geometry())
+        else:
+            self.setGeometry(QRect(QPoint(), parent.geometry().size()))
         geometry = self.geometry()
         self.animationIn(geometry)
         super(Drawer, self).show()
+
+    def hideSelf(self):
+        self.animationOut()
 
     def animationIn(self, geometry):
         """进入动画
@@ -125,9 +136,12 @@ class Drawer(QWidget):
     def onAnimOutEnd(self):
         """离开动画结束
         """
-        # 模拟点击外侧关闭
-        QApplication.sendEvent(self, QMouseEvent(
-            QMouseEvent.MouseButtonPress, QPointF(-1, -1), Qt.LeftButton, Qt.NoButton, Qt.NoModifier))
+        if self.popup:
+            # 模拟点击外侧关闭
+            QApplication.sendEvent(self, QMouseEvent(
+                QMouseEvent.MouseButtonPress, QPointF(-1, -1), Qt.LeftButton, Qt.NoButton, Qt.NoModifier))
+        else:
+            self.hide()
 
     def setWidget(self, widget):
         """设置子控件

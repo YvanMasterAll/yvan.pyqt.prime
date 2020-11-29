@@ -2,11 +2,12 @@ import asyncio
 import random
 import qtawesome
 from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QVBoxLayout, \
-    QLineEdit, QLabel, QHBoxLayout, QSpacerItem, QToolButton, QMenu, QGroupBox, QListView, QScrollArea
+    QLineEdit, QLabel, QHBoxLayout, QSpacerItem, QToolButton, QMenu, QGroupBox, QListView, QScrollArea, QAction
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import QWidget, QApplication
 from qtpy import QtWidgets, QtCore, QtGui
 from common.loader.resource import ResourceLoader
+from widget.activity.modal.action_sheet import ActionSheet
 from widget.frame.form.baselineedit import BaseLineEdit
 from widget.frame.list.base_list_view import BaseListView
 from widget.frame.list.delegate import ListDelegate
@@ -117,14 +118,14 @@ class TabPage1(BaseView):
             'data': [
                 {
                     'sn': {'value': '001', 'type': 'string'},
-                    'type': {'value': '警告', 'text_color': ResourceLoader().qt_color_tag_warning, 'border_color': ResourceLoader().qt_color_tag_warning, 'font': ResourceLoader().qt_font_text_tag, 'type': 'tag'},
+                    'type': {'value': '警告', 'text_color': ResourceLoader().qt_color_warning, 'border_color': ResourceLoader().qt_color_warning, 'font': ResourceLoader().qt_font_text_tag, 'type': 'tag'},
                     'check': {'value': 1, 'type': 'checkbox', 'size': 20 },
                     'content': {'value': '设备离线', 'type': 'string'},
                 },
                 {
                     'sn': {'value': '002', 'type': 'string'},
-                    'type': {'value': '正常', 'text_color': ResourceLoader().qt_color_tag_success,
-                             'border_color': ResourceLoader().qt_color_tag_success,
+                    'type': {'value': '正常', 'text_color': ResourceLoader().qt_color_success,
+                             'border_color': ResourceLoader().qt_color_success,
                              'font': ResourceLoader().qt_font_text_tag, 'type': 'tag'},
                     'check': {'value': 0, 'type': 'checkbox', 'size': 20},
                     'content': {'value': '设备正常', 'type': 'string'},
@@ -166,8 +167,9 @@ class DeviceDrawer(BaseView):
         self.btn_menu.setText("菜单")
         self.btn_menu.setObjectName("Btn_Menu")
         menu = QMenu()
-        for action in ['菜单项一', '菜单项二', '菜单项三']:
+        for action in ['弹出选项', '菜单项二', '菜单项三']:
             menu.addAction(action)
+        menu.triggered.connect(self.on_menu_clicked)
         self.btn_menu.setMenu(menu)
         self.btn_menu.setPopupMode(QtWidgets.QToolButton.MenuButtonPopup)
         self.sep_header = Separator(self)
@@ -287,3 +289,14 @@ class DeviceDrawer(BaseView):
             # }
             data.append(item)
         callback(data)
+
+    def on_menu_clicked(self, action:QAction):
+        text = action.text()
+        if text == '弹出选项':
+            self.show_sheet()
+    #
+    def show_sheet(self):
+        if not hasattr(self, 'action_sheet'):
+            self.action_sheet = ActionSheet(data=['电流检测', '电压检测', '电阻检测'], parent=self.parent())
+            self.action_sheet.on_item_clicked.connect(lambda item:print('选中了{item}'.format(item=item)))
+        self.action_sheet.showSelf()

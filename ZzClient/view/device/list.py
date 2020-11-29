@@ -44,7 +44,8 @@ class DeviceList(BaseView):
 
     def open_drawer(self):
         if not hasattr(self, 'drawer'):
-            self.drawer = Drawer(self, stretch=0.5, direction=Drawer.RIGHT)
+            # 编写一个可以查找最外层的BaseActivity实例
+            self.drawer = Drawer(self.parent().parent(), stretch=0.5, direction=Drawer.RIGHT, popup=False)
             self.drawer_widget = DeviceDrawer(self.drawer)
             self.drawer.setWidget(self.drawer_widget)
         QTimer.singleShot(0, lambda :self.drawer.show())

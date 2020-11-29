@@ -1,13 +1,15 @@
 import sys
-from PyQt5.QtCore import QSize, Qt, QObject, QPoint, QTimer
-from PyQt5.QtGui import QPixmap, QColor, QFontDatabase, QFont, QBrush, QIcon, QLinearGradient, QGradient, QLabel
-from PyQt5.QtWidgets import QVBoxLayout, QWidget, QApplication, QPushButton, QHBoxLayout, QSpacerItem
+from PyQt5.QtCore import QSize, Qt, QObject, QPoint, QTimer, QPropertyAnimation, pyqtProperty
+from PyQt5.QtGui import QPixmap, QColor, QFontDatabase, QFont, QBrush, QIcon, QLinearGradient, QGradient, \
+    QGuiApplication, QPainter
+from PyQt5.QtWidgets import QVBoxLayout, QWidget, QApplication, QPushButton, QHBoxLayout, QSpacerItem, QLabel
 from qtpy import QtCore, QtWidgets, QtGui
 import resources.qss.theme.dark.style_rc
 from bloc.app import Bloc_App
 from common.loader.resource import ResourceLoader
 from config.theme import Theme
 from view.home.sidebar import SideBar
+from widget.activity.modal.toast import Toast
 from widget.frame.button.mrxy.mrxy_button import MrxyButton
 from widget.view import BaseView
 
@@ -26,8 +28,9 @@ class Window(QWidget):
         layout = QVBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(layout)
-        sidebar = SideBar(self)
-        layout.addWidget(sidebar)
+
+        QTimer.singleShot(400, lambda :Toast.showTip("这是一条提示"))
+        QTimer.singleShot(2000, lambda: Toast.showTip("这是一条提示"))
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
         Bloc_App().app_closed.emit()

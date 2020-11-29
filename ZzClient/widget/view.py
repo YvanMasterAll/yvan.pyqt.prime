@@ -7,6 +7,7 @@ from common.util.route import RouteManager
 from config.const import Config
 from config.theme import Theme
 from common.loader.fontawesome import FontAwesome
+from widget.activity.modal.loading import Loading
 
 '''
 页面基类
@@ -63,3 +64,12 @@ class BaseView(QWidget):
             self.set_bloc()
         if hasattr(self, 'set_signal'):
             self.set_signal()
+
+    def show_vloading(self):
+        if not hasattr(self, 'inner_loader'):
+            self.inner_loader = Loading(self, modal=False)
+        self.inner_loader.show()
+
+    def hide_vloading(self):
+        if hasattr(self, 'inner_loader'):
+            self.inner_loader.on_outer_close.emit()

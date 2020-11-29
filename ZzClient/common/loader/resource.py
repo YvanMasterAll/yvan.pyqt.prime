@@ -39,13 +39,6 @@ class ResourceLoader:
     iconFontNames = {}
 
     '''
-    字体资源
-    '''
-    @property
-    def qt_font_yahei(self):
-        return Config().font_path + '/Microsoft-YaHei.ttf'
-
-    '''
     颜色资源
     '''
     @property
@@ -69,8 +62,12 @@ class ResourceLoader:
         return QColor(Theme.palette.COLOR_PRIMARY_NORMAL)
 
     @property
-    def qt_color_background_dark(self):
+    def qt_color_primary_dark(self):
         return QColor(Theme.palette.COLOR_PRIMARY_DARK)
+
+    @property
+    def qt_color_separator_dark(self):
+        return QColor(Theme.palette.COLOR_SEPARATOR_DARK)
 
     @property
     def qt_color_gradient_primary(self):
@@ -93,12 +90,12 @@ class ResourceLoader:
         return QColor(Theme.palette.COLOR_TAG_OFFLINE)
 
     @property
-    def qt_color_tag_warning(self):
-        return QColor(Theme.palette.COLOR_TAG_WARNING)
+    def qt_color_warning(self):
+        return QColor(Theme.palette.COLOR_WARNING)
 
     @property
-    def qt_color_tag_success(self):
-        return QColor(Theme.palette.COLOR_TAG_SUCCESS)
+    def qt_color_success(self):
+        return QColor(Theme.palette.COLOR_SUCCESS)
 
     @property
     def qt_color_label_link(self):
@@ -300,3 +297,16 @@ class ResourceLoader:
         _routes = routes
         _menus = menus
         RouteManager().load_modules(_routes, _menus)
+
+    @classmethod
+    def load_app_font(self):
+        '''
+        系统字体
+        '''
+        fontDB = QFontDatabase()
+        font_path = Config().font_path + '/Microsoft-YaHei.ttf'
+        fontDB.addApplicationFont(font_path)
+        font = QFont('Microsoft YaHei')
+        font.setPixelSize(12)
+        font.setWeight(50)
+        return font

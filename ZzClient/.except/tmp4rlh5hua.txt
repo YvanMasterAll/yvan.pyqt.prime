@@ -1,0 +1,77 @@
+TypeError
+Python 3.7.3: /Users/yiqiang/.conda/envs/ZzClient/bin/python
+Sun Nov 29 12:52:05 2020
+
+A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/device/list.py in open_drawer(self=<view.device.list.DeviceList object>)
+   46         if not hasattr(self, 'drawer'):
+   47             # self.drawer = Drawer(self, stretch=0.5, direction=Drawer.RIGHT)
+   48             self.drawer = Drawer(self.parent, stretch=0.5, direction=Drawer.RIGHT, popup=False)
+   49             self.drawer_widget = DeviceDrawer(self.drawer)
+   50             self.drawer.setWidget(self.drawer_widget)
+self = <view.device.list.DeviceList object>
+self.drawer undefined
+global Drawer = <class 'widget.activity.drawer.Drawer'>
+self.parent = <built-in method parent of DeviceList object>
+stretch undefined
+direction undefined
+Drawer.RIGHT = 2
+popup undefined
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/activity/drawer.py in __init__(self=<widget.activity.drawer.Drawer object>, stretch=0.5, direction=2, widget=None, popup=False, *args=(<built-in method parent of DeviceList object>,), **kwargs={})
+   12 
+   13     def __init__(self, *args, stretch=1 / 3, direction=0, widget=None, popup=True, **kwargs):
+   14         super(Drawer, self).__init__(*args, **kwargs)
+   15         # 浮动弹出
+   16         self.popup = popup
+builtinsuper = <class 'super'>
+global Drawer = <class 'widget.activity.drawer.Drawer'>
+self = <widget.activity.drawer.Drawer object>
+).__init__ = <bound method Drawer.__init__ of <widget.activity.drawer.Drawer object>>
+args = (<built-in method parent of DeviceList object>,)
+kwargs = {}
+TypeError: QWidget(parent: QWidget = None, flags: Union[Qt.WindowFlags, Qt.WindowType] = Qt.WindowFlags()): argument 1 has unexpected type 'builtin_function_or_method'
+    __cause__ = None
+    __class__ = <class 'TypeError'>
+    __context__ = None
+    __delattr__ = <method-wrapper '__delattr__' of TypeError object>
+    __dict__ = {}
+    __dir__ = <built-in method __dir__ of TypeError object>
+    __doc__ = 'Inappropriate argument type.'
+    __eq__ = <method-wrapper '__eq__' of TypeError object>
+    __format__ = <built-in method __format__ of TypeError object>
+    __ge__ = <method-wrapper '__ge__' of TypeError object>
+    __getattribute__ = <method-wrapper '__getattribute__' of TypeError object>
+    __gt__ = <method-wrapper '__gt__' of TypeError object>
+    __hash__ = <method-wrapper '__hash__' of TypeError object>
+    __init__ = <method-wrapper '__init__' of TypeError object>
+    __init_subclass__ = <built-in method __init_subclass__ of type object>
+    __le__ = <method-wrapper '__le__' of TypeError object>
+    __lt__ = <method-wrapper '__lt__' of TypeError object>
+    __ne__ = <method-wrapper '__ne__' of TypeError object>
+    __new__ = <built-in method __new__ of type object>
+    __reduce__ = <built-in method __reduce__ of TypeError object>
+    __reduce_ex__ = <built-in method __reduce_ex__ of TypeError object>
+    __repr__ = <method-wrapper '__repr__' of TypeError object>
+    __setattr__ = <method-wrapper '__setattr__' of TypeError object>
+    __setstate__ = <built-in method __setstate__ of TypeError object>
+    __sizeof__ = <built-in method __sizeof__ of TypeError object>
+    __str__ = <method-wrapper '__str__' of TypeError object>
+    __subclasshook__ = <built-in method __subclasshook__ of type object>
+    __suppress_context__ = False
+    __traceback__ = <traceback object>
+    args = ("QWidget(parent: QWidget = None, flags: Union[Qt.... has unexpected type 'builtin_function_or_method'",)
+    with_traceback = <built-in method with_traceback of TypeError object>
+
+The above is a description of an error in a Python program.  Here is
+the original traceback:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/device/list.py", line 48, in open_drawer
+    self.drawer = Drawer(self.parent, stretch=0.5, direction=Drawer.RIGHT, popup=False)
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/widget/activity/drawer.py", line 14, in __init__
+    super(Drawer, self).__init__(*args, **kwargs)
+TypeError: QWidget(parent: QWidget = None, flags: Union[Qt.WindowFlags, Qt.WindowType] = Qt.WindowFlags()): argument 1 has unexpected type 'builtin_function_or_method'
+

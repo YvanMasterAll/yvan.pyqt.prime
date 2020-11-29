@@ -3,7 +3,6 @@ from PyQt5.QtGui import QKeyEvent, QMouseEvent, QPainterPath, QPainter, QBrush, 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QApplication, QDialog
 from PyQt5.QtCore import Qt, QPoint, QEvent, QRect
 from PyQt5.QtCore import QObject
-from widget.dialog import waiting_dialog
 from common.util.logger import logger, logger_err
 from widget.view import BaseView
 from widget.frame.bar.titlebar import TitleBar
@@ -31,6 +30,7 @@ class BaseActivity(QDialog, BaseView):
     _right_rect = []
     _bottom_rect = []
     _corner_rect = []
+    _drag_ignore_fixed = False # 拖动无视尺寸固定
 
     '''
     扳机默认值
@@ -73,8 +73,6 @@ class BaseActivity(QDialog, BaseView):
         # 如果设置零边距，在窗口状态变更时(如最大化)，边角会出现空白区域
         self._main_layout.setContentsMargins(self.margin, self.margin, self.margin, self.margin)
         self.setLayout(self._main_layout)
-        # 默认的遮罩层
-        self.waiting_dialog = waiting_dialog()
 
     def addLayout(self, layout):
         '''
@@ -161,7 +159,11 @@ class BaseActivity(QDialog, BaseView):
         '''
         判断鼠标位置是否移动到了边界以便更换鼠标样式
         '''
-        if self.isMaximized() or self.isFullScreen() or not self.isResizable():
+        if self._drag_ignore_fixed:
+            if self.isFullScreen():
+                # 非全屏均可移动
+                return
+        elif self.isMaximized() or self.isFullScreen() or not self.isResizable():
             # 最大化时不可移动
             return
         if _.pos() in self._corner_rect:

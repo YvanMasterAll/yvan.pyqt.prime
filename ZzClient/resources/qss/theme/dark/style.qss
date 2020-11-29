@@ -24,7 +24,11 @@ QWidget {
 QLabel {
     background-color: transparent;
     color: #FFFEFE;
-    font-size: 14px;
+}
+
+QPushButton {
+    min-width: 60px;
+    padding: 3px 6px;
 }
 
 /*
@@ -125,6 +129,7 @@ NavBar > NavButton {
     background-color: #333842;
     border-radius: 8px;
     border: none;
+    min-width: 80px;
 }
 
 NavBar > NavButton:hover {
@@ -296,7 +301,6 @@ DeviceDrawer #Label_Title {
 
 DeviceDrawer #Btn_Edit, DeviceDrawer #Btn_Del {
     qproperty-iconSize: 20px 12px;
-    padding: 4px 0;
     font-size: 12px;
     margin-left: 6px;
 }
@@ -331,9 +335,42 @@ DeviceDrawer BaseListView {
     min-height: 200px;
 }
 
+/*
+ * ActionSheet
+ */
 
+PopupContainer {
+    background-color: transparent;
+}
 
+PopupContainer #Container {
+    background-color: #282C34;
+    border-radius: 4px;
+}
 
+ActionSheet QListWidget, ActionSheet QListWidget:hover {
+    border: none;
+    padding: 0;
+}
 
+/*
+ * Loading
+ */
 
+#Loading {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
+/*
+ * 对话框
+ */
+
+CustomDialog #Action {
+    background-color: qlineargradient(x1:0,y1:0,x2:0,y2:1,stop:0 #333842, stop:0.4 #282C34, stop: 0.7 #21252B, stop:1 #21252B);
+    border-top: 1px solid qlineargradient(x1:0,y1:1,x2:0,y2:0,stop:0 #4B5261, stop: 0.5 #333842, stop:1 #4B5261);
+}
+
+CustomDialog #Container, CustomDialog #Action {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}

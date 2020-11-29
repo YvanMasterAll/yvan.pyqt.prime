@@ -238,16 +238,16 @@ class Window(QWidget):
             'data': [
                 {
                     'sn': {'value': '001', 'type': 'string'},
-                    'type': {'value': '警告', 'text_color': ResourceLoader().qt_color_tag_warning,
-                             'border_color': ResourceLoader().qt_color_tag_warning,
+                    'type': {'value': '警告', 'text_color': ResourceLoader().qt_color_warning,
+                             'border_color': ResourceLoader().qt_color_warning,
                              'font': ResourceLoader().qt_font_text_tag, 'type': 'tag'},
                     'check': {'value': 1, 'type': 'checkbox', 'size': 20},
                     'content': {'value': '设备离线', 'type': 'string'},
                 },
                 {
                     'sn': {'value': '002', 'type': 'string'},
-                    'type': {'value': '正常', 'text_color': ResourceLoader().qt_color_tag_success,
-                             'border_color': ResourceLoader().qt_color_tag_success,
+                    'type': {'value': '正常', 'text_color': ResourceLoader().qt_color_success,
+                             'border_color': ResourceLoader().qt_color_success,
                              'font': ResourceLoader().qt_font_text_tag, 'type': 'tag'},
                     'check': {'value': 0, 'type': 'checkbox', 'size': 20},
                     'content': {'value': '设备正常', 'type': 'string'},

@@ -1,0 +1,69 @@
+TypeError
+Python 3.7.3: /Users/yiqiang/.conda/envs/ZzClient/bin/python
+Sun Nov 29 12:37:28 2020
+
+A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/device/device_drawer.py in on_menu_clicked(self=<view.device.device_drawer.DeviceDrawer object>, action=<PyQt5.QtWidgets.QAction object>)
+  294         text = action.text()
+  295         if text == '弹出选项':
+  296             self.show_sheet()
+  297     #
+  298     def show_sheet(self):
+self = <view.device.device_drawer.DeviceDrawer object>
+self.show_sheet = <bound method DeviceDrawer.show_sheet of <view.device.device_drawer.DeviceDrawer object>>
+
+ /Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/device/device_drawer.py in show_sheet(self=<view.device.device_drawer.DeviceDrawer object>)
+  298     def show_sheet(self):
+  299         if not hasattr(self, 'action_sheet'):
+  300             self.action_sheet = ActionSheet(data=['电流检测', '电压检测', '电阻检测'])
+  301             self.action_sheet.on_item_clicked.connect(lambda item:print('选中了{item}'.format(item=item)))
+  302         self.action_sheet.showSelf()
+self = <view.device.device_drawer.DeviceDrawer object>
+self.action_sheet undefined
+global ActionSheet = <class 'widget.activity.modal.action_sheet.ActionSheet'>
+data undefined
+TypeError: __init__() missing 1 required keyword-only argument: 'parent'
+    __cause__ = None
+    __class__ = <class 'TypeError'>
+    __context__ = None
+    __delattr__ = <method-wrapper '__delattr__' of TypeError object>
+    __dict__ = {}
+    __dir__ = <built-in method __dir__ of TypeError object>
+    __doc__ = 'Inappropriate argument type.'
+    __eq__ = <method-wrapper '__eq__' of TypeError object>
+    __format__ = <built-in method __format__ of TypeError object>
+    __ge__ = <method-wrapper '__ge__' of TypeError object>
+    __getattribute__ = <method-wrapper '__getattribute__' of TypeError object>
+    __gt__ = <method-wrapper '__gt__' of TypeError object>
+    __hash__ = <method-wrapper '__hash__' of TypeError object>
+    __init__ = <method-wrapper '__init__' of TypeError object>
+    __init_subclass__ = <built-in method __init_subclass__ of type object>
+    __le__ = <method-wrapper '__le__' of TypeError object>
+    __lt__ = <method-wrapper '__lt__' of TypeError object>
+    __ne__ = <method-wrapper '__ne__' of TypeError object>
+    __new__ = <built-in method __new__ of type object>
+    __reduce__ = <built-in method __reduce__ of TypeError object>
+    __reduce_ex__ = <built-in method __reduce_ex__ of TypeError object>
+    __repr__ = <method-wrapper '__repr__' of TypeError object>
+    __setattr__ = <method-wrapper '__setattr__' of TypeError object>
+    __setstate__ = <built-in method __setstate__ of TypeError object>
+    __sizeof__ = <built-in method __sizeof__ of TypeError object>
+    __str__ = <method-wrapper '__str__' of TypeError object>
+    __subclasshook__ = <built-in method __subclasshook__ of type object>
+    __suppress_context__ = False
+    __traceback__ = <traceback object>
+    args = ("__init__() missing 1 required keyword-only argument: 'parent'",)
+    with_traceback = <built-in method with_traceback of TypeError object>
+
+The above is a description of an error in a Python program.  Here is
+the original traceback:
+
+Traceback (most recent call last):
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/device/device_drawer.py", line 296, in on_menu_clicked
+    self.show_sheet()
+  File "/Users/yiqiang/Work/Workplace/Python/ZzClient/ZzClient/view/device/device_drawer.py", line 300, in show_sheet
+    self.action_sheet = ActionSheet(data=['电流检测', '电压检测', '电阻检测'])
+TypeError: __init__() missing 1 required keyword-only argument: 'parent'
+

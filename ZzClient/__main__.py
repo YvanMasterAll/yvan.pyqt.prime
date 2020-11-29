@@ -22,7 +22,13 @@ from common.loader.resource import ResourceLoader
 - Toast + Popmenu + Dropmenu + 通知
 - Drawer
 - 树结构
-- Tabbarf
+- Tabbar
+'''
+
+'''
+FeelUOwn > IconButton(悬浮变小) > border-width: 3px;
+FeelUOwn > 关闭窗口不退出程序
+FeelUOwn > https://github.com/Rapiz1/feeluown-notification-plugin/blob/master/__init__.py
 '''
 
 def start():
@@ -45,12 +51,7 @@ def start():
         # fontDB.addApplicationFont(':/font/Roboto-Regular.ttf')
         # app.setFont(QFont('Roboto'))
         # 设置雅黑字体
-        fontDB = QFontDatabase()
-        fontDB.addApplicationFont(ResourceLoader().qt_font_yahei)
-        font = QFont('Microsoft YaHei')
-        font.setPixelSize(12)
-        font.setWeight(50)
-        app.setFont(font)
+        app.setFont(ResourceLoader.load_app_font())
         # 图标字体
         ResourceLoader.load_icon_font()
         # 加载模块
